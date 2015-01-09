@@ -12,13 +12,14 @@
 package org.usfirst.frc1719.TEST.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc1719.TEST.Robot;
 
 /**
  *
  */
 public class  UseDrive extends Command {
-	Robot robot = new Robot();
+	
     public UseDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -36,7 +37,7 @@ public class  UseDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//TEST CODE
-    	robot.drive.moveArcade(1, 0);
+    	Robot.drive.moveArcade(1, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
