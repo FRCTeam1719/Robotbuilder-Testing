@@ -15,7 +15,6 @@ import org.usfirst.frc1719.TEST.commands.AutonomousCommand;
 import org.usfirst.frc1719.TEST.commands.BALBOBAGGINS;
 import org.usfirst.frc1719.TEST.commands.CheckSwitch;
 import org.usfirst.frc1719.TEST.commands.DriveServos;
-import org.usfirst.frc1719.TEST.commands.ReadEncoder;
 import org.usfirst.frc1719.TEST.commands.SpinMotor;
 import org.usfirst.frc1719.TEST.commands.StopMotor;
 import org.usfirst.frc1719.TEST.commands.UseDrive;
@@ -89,10 +88,6 @@ public class OI {
         SmartDashboard.putData("StopMotor", new StopMotor());
 
         SmartDashboard.putData("CheckSwitch", new CheckSwitch());
-        
-        SmartDashboard.putData("ReadEncoder", new ReadEncoder(RobotMap.sensorsQuadratureEncoder1));
-        
-        SmartDashboard.putData("ReadEncoder", new ReadEncoder(RobotMap.sensorsQuadratureEncoder2));
 
         SmartDashboard.putData("DriveServos", new DriveServos());
 

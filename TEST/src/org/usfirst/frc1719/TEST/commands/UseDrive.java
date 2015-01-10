@@ -15,6 +15,7 @@ package org.usfirst.frc1719.TEST.commands;
 import edu.wpi.first.wpilibj.command.Command;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+
 import org.usfirst.frc1719.TEST.Robot;
 
 /**
@@ -51,6 +52,7 @@ public class  UseDrive extends Command {
     	if(driveType==TANK_DRIVE){
     		Robot.drive.moveTank(Robot.oi.getJoystick1().getRawAxis(LEFT_Y), Robot.oi.getJoystick1().getRawAxis(RIGHT_Y));
     		}
+    	System.out.println("Encoder1 Rate: " + Robot.sensors.getEncoderRate(1) + "Encoder2 Rate: " + Robot.sensors.getEncoderRate(2));
     }
 
     // Make this return true when this Command no longer needs to run execute()
