@@ -44,6 +44,7 @@ public class  UseDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+
     	//TEST CODE
     	driveType = (boolean) Robot.driveChooser.getSelected();
     	if(driveType==ARCADE_DRIVE){
@@ -52,6 +53,7 @@ public class  UseDrive extends Command {
     	if(driveType==TANK_DRIVE){
     		Robot.drive.moveTank(Robot.oi.getJoystick1().getRawAxis(LEFT_Y), Robot.oi.getJoystick1().getRawAxis(RIGHT_Y));
     		}
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
