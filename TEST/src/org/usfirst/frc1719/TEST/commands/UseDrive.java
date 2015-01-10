@@ -38,13 +38,7 @@ public class  UseDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-<<<<<<< HEAD
-    	
-=======
-    	//TEST CODE
-    	
-    	Robot.drive.moveArcade(Robot.oi.getJoystick1().getRawAxis(LEFT_Y), Robot.oi.getJoystick1().getRawAxis(LEFT_X));
->>>>>>> 682f2f6ab055339441c7e4742d7c953615407152
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
