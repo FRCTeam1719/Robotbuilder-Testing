@@ -18,7 +18,7 @@ import org.usfirst.frc1719.TEST.Robot;
  *
  */
 public class  CheckSwitch extends Command {
-
+	
     public CheckSwitch() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -34,7 +34,13 @@ public class  CheckSwitch extends Command {
     }
 
     // Called repeatedly when this Command is scheduled to run
+    //Sample Code
     protected void execute() {
+    	if (Robot.sensors.getLimitSwitch().get()) {
+    		//System.out.println("Limit switch activated.");
+    	} else {
+    		//System.out.println("Limit switch not activated.");
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
