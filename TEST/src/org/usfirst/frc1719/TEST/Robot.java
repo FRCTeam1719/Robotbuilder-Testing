@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 //import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc1719.TEST.commands.*;
 import org.usfirst.frc1719.TEST.subsystems.*;
@@ -70,6 +71,7 @@ public class Robot extends IterativeRobot {
         driveChooser = new SendableChooser();
         driveChooser.addDefault("Arcade Drive", ARCADE_DRIVE);
         driveChooser.addObject("Tank Drive", TANK_DRIVE);
+        SmartDashboard.putData("Drive", driveChooser);
     }
 
     /**
