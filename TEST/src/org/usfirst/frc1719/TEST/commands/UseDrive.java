@@ -46,7 +46,7 @@ public class  UseDrive extends Command {
     protected void execute() {
 
     	//TEST CODE
-    	driveType = (boolean) Robot.driveChooser.getSelected();
+    	driveType = true; //(boolean) Robot.driveChooser.getSelected();
     	if(driveType==ARCADE_DRIVE){
     		Robot.drive.moveArcade(Robot.oi.getJoystick1().getRawAxis(LEFT_Y), Robot.oi.getJoystick1().getRawAxis(LEFT_X));
     		}
