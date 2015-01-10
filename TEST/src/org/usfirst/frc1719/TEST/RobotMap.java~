@@ -42,6 +42,7 @@ public class RobotMap {
     public static Relay motorMotorRelay;
     public static DigitalInput sensorsLimitSwitch;
     public static Encoder sensorsQuadratureEncoder1;
+    public static Encoder sensorsQuadratureEncoder2;
     public static Servo cameraMountYServo;
     public static Servo cameraMountXServo;
 
@@ -79,6 +80,10 @@ public class RobotMap {
         LiveWindow.addSensor("Sensors", "Quadrature Encoder 1", sensorsQuadratureEncoder1);
         sensorsQuadratureEncoder1.setDistancePerPulse(1.0);
         sensorsQuadratureEncoder1.setPIDSourceParameter(PIDSourceParameter.kRate);
+        sensorsQuadratureEncoder2 = new Encoder(3, 4, false, EncodingType.k4X);
+        LiveWindow.addSensor("Sensors", "Quadrature Encoder 2", sensorsQuadratureEncoder2);
+        sensorsQuadratureEncoder2.setDistancePerPulse(1.0);
+        sensorsQuadratureEncoder2.setPIDSourceParameter(PIDSourceParameter.kRate);
         cameraMountYServo = new Servo(2);
         LiveWindow.addActuator("CameraMount", "YServo", cameraMountYServo);
         

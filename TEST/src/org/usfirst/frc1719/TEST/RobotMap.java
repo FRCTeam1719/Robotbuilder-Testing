@@ -75,7 +75,7 @@ public class RobotMap {
         
         sensorsLimitSwitch = new DigitalInput(0);
         LiveWindow.addSensor("Sensors", "LimitSwitch", sensorsLimitSwitch);
-        System.out.println("running encoder shit");
+        
         sensorsQuadratureEncoder1 = new Encoder(1, 2, false, EncodingType.k4X);
         LiveWindow.addSensor("Sensors", "Quadrature Encoder 1", sensorsQuadratureEncoder1);
         sensorsQuadratureEncoder1.setDistancePerPulse(1.0);
