@@ -179,6 +179,14 @@ Children:
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
     Name: CMDSolenoid1On
+  - Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Pneumatics}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: false}
+    Base: Command
+    Name: CMDSolenoid1Off
   Properties: {}
   Base: Commands
   Name: Commands
