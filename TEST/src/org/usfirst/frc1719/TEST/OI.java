@@ -64,6 +64,7 @@ public class OI {
         
         buttonSolenoidOn = new JoystickButton(joystick1, 1);
         buttonSolenoidOn.whenPressed(new CMDSolenoid1On());
+        buttonSolenoidOn.whenReleased(new CMDSolenoid1Off());
 
 	    
         // SmartDashboard Buttons
