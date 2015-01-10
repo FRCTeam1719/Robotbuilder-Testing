@@ -18,6 +18,8 @@ import org.usfirst.frc1719.TEST.Robot;
  *
  */
 public class  DriveServos extends Command {
+	final int JOYSTICK_LEFT_X = 4;
+	final int JOYSTICK_LEFT_Y = 5;
 
     public DriveServos() {
         // Use requires() here to declare subsystem dependencies
@@ -35,6 +37,16 @@ public class  DriveServos extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if( !(Robot.oi.getJoystick1().getRawButton(10)) ) {
+    		return;
+    	}
+    	double joystickXPosition = Robot.oi.joystick1.getRawAxis(JOYSTICK_LEFT_X);
+    	double joystickYPosition = Robot.oi.joystick1.getRawAxis(JOYSTICK_LEFT_Y);
+    	
+    	
+    	Robot.cameraMount.setXServoPan(joystickXPosition);
+    	Robot.cameraMount.setYServoPan(joystickYPosition);
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
