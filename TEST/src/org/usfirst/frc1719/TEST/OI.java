@@ -13,8 +13,10 @@ package org.usfirst.frc1719.TEST;
 
 import org.usfirst.frc1719.TEST.commands.AutonomousCommand;
 import org.usfirst.frc1719.TEST.commands.BALBOBAGGINS;
+import org.usfirst.frc1719.TEST.commands.CentreCamera;
 import org.usfirst.frc1719.TEST.commands.CheckSwitch;
 import org.usfirst.frc1719.TEST.commands.DriveServos;
+import org.usfirst.frc1719.TEST.commands.ReadEncoder;
 import org.usfirst.frc1719.TEST.commands.SpinMotor;
 import org.usfirst.frc1719.TEST.commands.StopMotor;
 import org.usfirst.frc1719.TEST.commands.UseDrive;
