@@ -11,6 +11,7 @@
 
 package org.usfirst.frc1719.TEST.commands;
 
+//import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc1719.TEST.Robot;
@@ -19,7 +20,8 @@ import org.usfirst.frc1719.TEST.Robot;
  *
  */
 public class  UseDrive extends Command {
-	
+	final int LEFT_X = 0;
+	final int LEFT_Y = 1;
     public UseDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -37,7 +39,8 @@ public class  UseDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//TEST CODE
-    	Robot.drive.moveArcade(1, 0);
+    	
+    	Robot.drive.moveArcade(Robot.oi.getJoystick1().getRawAxis(LEFT_Y), Robot.oi.getJoystick1().getRawAxis(LEFT_X));
     }
 
     // Make this return true when this Command no longer needs to run execute()
