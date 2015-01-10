@@ -42,5 +42,9 @@ public class Sensors extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    
+    public DigitalInput getLimitSwitch() {
+    	return limitSwitch;
+    }
 }
 
