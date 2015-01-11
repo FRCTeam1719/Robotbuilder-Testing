@@ -9,13 +9,11 @@ public class AutoCurveRight implements CommandOption {
 	
 	@Override
 	public void doCMD() {
-		// Robot.drive.moveTank(LEFT, RIGHT);
-		System.out.println("Curving Right");
+		Robot.drive.moveTank(LEFT, RIGHT);
 	}
 
 	@Override
 	public boolean done() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
