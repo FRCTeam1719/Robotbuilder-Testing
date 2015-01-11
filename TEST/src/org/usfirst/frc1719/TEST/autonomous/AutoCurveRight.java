@@ -9,7 +9,8 @@ public class AutoCurveRight implements CommandOption {
 	
 	@Override
 	public void doCMD() {
-		Robot.drive.moveTank(LEFT, RIGHT);
+		// Robot.drive.moveTank(LEFT, RIGHT);
+		System.out.println("Curving Right");
 	}
 
 	@Override

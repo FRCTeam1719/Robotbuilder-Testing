@@ -9,7 +9,8 @@ public class AutoSpinCW implements CommandOption {
 	
 	@Override
 	public void doCMD() {
-		Robot.drive.moveTank(LEFT, RIGHT);
+		//Robot.drive.moveTank(LEFT, RIGHT);
+		System.out.println("Spinning Clockwise");
 	}
 
 	@Override
