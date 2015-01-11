@@ -50,13 +50,18 @@ public class CameraMount extends Subsystem {
     	setDefaultCommand(new DriveServos());
     }
     
+    public void setXServoRaw(double position) {
+    	panPositionX = position;
+    	xServo.set(position);
+    }
+    
     //position should be between -1 and 1
     public void setXServo(double position) {
     	
     	// Map the joystick; position to the servo position
     	position += 2;
     	position /= 4;
-    	
+    	panPositionX = position;
     	xServo.set(position);
     }
     
@@ -66,6 +71,11 @@ public class CameraMount extends Subsystem {
     	if (panPositionX < SERVO_MIN) panPositionX = SERVO_MIN;
     	if (panPositionX > SERVO_MAX) panPositionX = SERVO_MAX;
     	xServo.set(panPositionX);
+    }
+    
+    public void setYServoRaw(double position) {
+    	panPositionY = position;
+    	yServo.set(position);
     }
     
     public void setYServoPan(double joystickPosition) {
@@ -82,6 +92,7 @@ public class CameraMount extends Subsystem {
     	position -= 2;
     	position /= -4;
     	
+    	panPositionY = position;
     	yServo.set(position);
     }
 }
