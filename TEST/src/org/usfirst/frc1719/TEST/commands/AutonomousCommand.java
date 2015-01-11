@@ -12,7 +12,7 @@
 package org.usfirst.frc1719.TEST.commands;
 
 import org.usfirst.frc1719.TEST.Robot;
-import org.usfirst.frc1719.TEST.autonomous.CommandOption;
+//import org.usfirst.frc1719.TEST.autonomous.CommandOption;
 
 import edu.wpi.first.wpilibj.command.Command;
 

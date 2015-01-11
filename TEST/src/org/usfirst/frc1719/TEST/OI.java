@@ -14,11 +14,11 @@ package org.usfirst.frc1719.TEST;
 import org.usfirst.frc1719.TEST.commands.AutonomousCommand;
 import org.usfirst.frc1719.TEST.commands.BALBOBAGGINS;
 import org.usfirst.frc1719.TEST.commands.CMDSolenoid1Off;
-import org.usfirst.frc1719.TEST.commands.CMDSolenoid1On;
 import org.usfirst.frc1719.TEST.commands.CentreCamera;
 import org.usfirst.frc1719.TEST.commands.CheckSwitch;
 import org.usfirst.frc1719.TEST.commands.DriveServos;
 import org.usfirst.frc1719.TEST.commands.ReadEncoder;
+import org.usfirst.frc1719.TEST.commands.SetCameraPosition;
 import org.usfirst.frc1719.TEST.commands.SpinMotor;
 import org.usfirst.frc1719.TEST.commands.StopMotor;
 import org.usfirst.frc1719.TEST.commands.UseDrive;
@@ -83,8 +83,7 @@ public class OI {
         aButton = new JoystickButton(joystick1, 1);
         aButton.whenPressed(new SpinMotor());
         yButton = new JoystickButton(joystick1, 4);
-        yButton.whenPressed(new CMDSolenoid1On());
-        yButton.whenReleased(new CMDSolenoid1Off());
+        yButton.whenPressed(new SetCameraPosition(1.0D, 1.0D));
 
 	    
         // SmartDashboard Buttons
