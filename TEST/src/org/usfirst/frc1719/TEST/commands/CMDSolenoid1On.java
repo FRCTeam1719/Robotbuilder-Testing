@@ -35,6 +35,7 @@ public class  CMDSolenoid1On extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	System.out.println("BALBOBAGGINS");
     	Robot.pneumatics.getSolenoid1().set(true);
     }
 

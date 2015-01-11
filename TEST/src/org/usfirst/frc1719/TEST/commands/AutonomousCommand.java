@@ -34,6 +34,7 @@ public class  AutonomousCommand extends Command {
 
     // Called just before this Command runs the first time
     // please can we just put this in the constructor
+    // NO
     protected void initialize() {
     	
     }
