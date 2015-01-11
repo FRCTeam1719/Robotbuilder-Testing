@@ -26,8 +26,13 @@ public class  UseDrive extends Command {
 	final int LEFT_Y = 1;
 	final int RIGHT_X = 4;
 	final int RIGHT_Y = 5;
+	
+	final int MOTOR_1_CORRECT_SPEED = 1;
+	final int MOTOR_2_CORRECT_SPEED = 1;
 	final boolean TANK_DRIVE=false;
 	final boolean ARCADE_DRIVE=true;
+	
+	
 	boolean driveType;
     public UseDrive() {
         // Use requires() here to declare subsystem dependencies
@@ -53,9 +58,23 @@ public class  UseDrive extends Command {
     	if(driveType==TANK_DRIVE){
     		Robot.drive.moveTank(Robot.oi.getJoystick1().getRawAxis(LEFT_Y), Robot.oi.getJoystick1().getRawAxis(RIGHT_Y));
     		}
+    	
     	//Print Statements
-        System.out.println("Infrared Value: " + Robot.sensors.getIRSensorValue()); 
+        //System.out.println("Infrared Value: " + Robot.sensors.getIRSensorValue()); 
     	//System.out.println("Encoder1 Rate: " + Robot.sensors.getEncoderRate(1) + "Encoder2 Rate: " + Robot.sensors.getEncoderRate(2));
+    	
+    	double encoder1Accuracy;
+    	double encoder2Accuracy;
+    	double encoder1Rate = Robot.sensors.getEncoderRate(1);
+    	double encoder2Rate = Robot.sensors.getEncoderRate(2);
+    	System.out.println("Encoder1 Rate: " + encoder1Rate + "Encoder2 Rate: " + encoder2Rate);
+    	
+    	
+    	encoder1Accuracy = encoder1Rate / MOTOR_1_CORRECT_SPEED * 100;
+    	encoder2Accuracy = encoder2Rate / MOTOR_2_CORRECT_SPEED * 100;
+    	
+    	System.out.println("Encoder1 Accuracy: " + encoder1Accuracy + " Encoder2 Accuracy: " + encoder2Accuracy);
+
     }
     
     

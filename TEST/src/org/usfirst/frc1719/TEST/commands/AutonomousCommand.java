@@ -12,6 +12,7 @@
 package org.usfirst.frc1719.TEST.commands;
 
 import org.usfirst.frc1719.TEST.Robot;
+import org.usfirst.frc1719.TEST.autonomous.CommandOption;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -21,8 +22,6 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class  AutonomousCommand extends Command {
-	final static double DEFAULT_SPEED = 1;
-	final static double DEFAULT_ROTATION = 0;
 
     public AutonomousCommand() {
         // Use requires() here to declare subsystem dependencies
@@ -35,17 +34,19 @@ public class  AutonomousCommand extends Command {
 
     // Called just before this Command runs the first time
     // please can we just put this in the constructor
+    // NO
     protected void initialize() {
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drive.moveArcade(DEFAULT_SPEED, DEFAULT_ROTATION);
+    	((Robot.AutoCMD) Robot.autoCMDChooser.getSelected()).cmd.doCMD();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return ((Robot.AutoCMD) Robot.autoCMDChooser.getSelected()).cmd.done();
     }
 
     // Called once after isFinished returns true
