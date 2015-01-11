@@ -59,6 +59,10 @@ public class  UseDrive extends Command {
     		Robot.drive.moveTank(Robot.oi.getJoystick1().getRawAxis(LEFT_Y), Robot.oi.getJoystick1().getRawAxis(RIGHT_Y));
     		}
     	
+    	//Print Statements
+        //System.out.println("Infrared Value: " + Robot.sensors.getIRSensorValue()); 
+    	//System.out.println("Encoder1 Rate: " + Robot.sensors.getEncoderRate(1) + "Encoder2 Rate: " + Robot.sensors.getEncoderRate(2));
+    	
     	double encoder1Accuracy;
     	double encoder2Accuracy;
     	double encoder1Rate = Robot.sensors.getEncoderRate(1);
@@ -70,8 +74,10 @@ public class  UseDrive extends Command {
     	encoder2Accuracy = encoder2Rate / MOTOR_2_CORRECT_SPEED * 100;
     	
     	System.out.println("Encoder1 Accuracy: " + encoder1Accuracy + " Encoder2 Accuracy: " + encoder2Accuracy);
-    }
 
+    }
+    
+    
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;

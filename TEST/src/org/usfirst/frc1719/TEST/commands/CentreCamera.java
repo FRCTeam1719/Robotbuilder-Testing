@@ -40,6 +40,8 @@ public class  CentreCamera extends Command {
     	Robot.cameraMount.setXServo(CENTER);
     	Robot.cameraMount.setYServo(CENTER);
     	done = true;
+    	
+ 
     }
 
     // Make this return true when this Command no longer needs to run execute()
