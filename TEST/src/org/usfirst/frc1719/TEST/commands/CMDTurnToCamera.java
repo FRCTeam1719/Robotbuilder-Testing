@@ -9,6 +9,11 @@ import edu.wpi.first.wpilibj.command.Command;
 public class CMDTurnToCamera extends Command {
 
 	private boolean flag = true;
+	private boolean done = false;
+	private double target = 0;
+	private static final double TOLERANCE = 6.0D;
+	private static final double FORWARD = 1.0D;
+	private static final double BACKWARD = -1.0D;
 	
     public CMDTurnToCamera() {
         // Use requires() here to declare subsystem dependencies
@@ -23,15 +28,27 @@ public class CMDTurnToCamera extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(flag) {
-    		
-    	} else {
-    		
+    		Robot.sensors.getGyro().reset();
+    		target = (Robot.cameraMount.getXPos() * 360) - 180;
+    		flag = false;
     	}
+    	double curr = Robot.sensors.getGyro().getAngle();
+    	if (Math.abs(target - curr) < TOLERANCE) {
+    		Robot.cameraMount.center();
+    		done = true;
+    		flag = true;
+    		return;
+    	}
+    	double dir = ((target - curr) > 0) ? FORWARD : BACKWARD;
+    	Robot.drive.moveTank(dir, -dir);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	if(done) {
+    		done = false;
+    		return true;
+    	} else return false;
     }
 
     // Called once after isFinished returns true
