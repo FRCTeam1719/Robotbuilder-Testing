@@ -11,9 +11,8 @@ public class CMDTurnToCamera extends Command {
 	private boolean flag = true;
 	private boolean done = false;
 	private double target = 0;
-	private static final double TOLERANCE = 6.0D;
-	private static final double FORWARD = 1.0D;
-	private static final double BACKWARD = -1.0D;
+	private static final double TOLERANCE = 15.0D;
+	private static final double SPD = 0.5D;
 	
     public CMDTurnToCamera() {
         // Use requires() here to declare subsystem dependencies
@@ -29,17 +28,19 @@ public class CMDTurnToCamera extends Command {
     protected void execute() {
     	if(flag) {
     		Robot.sensors.getGyro().reset();
-    		target = (Robot.cameraMount.getXPos() * 360) - 180;
+    		target = (Robot.cameraMount.getXPos() * 180) - 90;
     		flag = false;
     	}
     	double curr = Robot.sensors.getGyro().getAngle();
     	if (Math.abs(target - curr) < TOLERANCE) {
+    		System.out.println("Rotation Completed");
     		Robot.cameraMount.center();
     		done = true;
     		flag = true;
     		return;
     	}
-    	double dir = ((target - curr) > 0) ? FORWARD : BACKWARD;
+    	System.out.println("Current Error: " + (target - curr));
+    	double dir = ((target - curr) < 0) ? SPD : -SPD;
     	Robot.drive.moveTank(dir, -dir);
     }
 
