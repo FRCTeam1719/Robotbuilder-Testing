@@ -22,15 +22,17 @@ import org.usfirst.frc1719.TEST.Robot;
  *
  */
 public class  UseDrive extends Command {
-	final int LEFT_X = 0;
-	final int LEFT_Y = 1;
-	final int RIGHT_X = 4;
-	final int RIGHT_Y = 5;
+	private static final int LEFT_X = 0;
+	private static final int LEFT_Y = 1;
+	private static final int RIGHT_X = 4;
+	private static final int RIGHT_Y = 5;
 	
-	final int MOTOR_1_CORRECT_SPEED = 1;
-	final int MOTOR_2_CORRECT_SPEED = 1;
-	final boolean TANK_DRIVE=false;
-	final boolean ARCADE_DRIVE=true;
+	private static final int MOTOR_1_CORRECT_SPEED = 1;
+	private static final int MOTOR_2_CORRECT_SPEED = 1;
+	private static final boolean TANK_DRIVE=false;
+	private static final boolean ARCADE_DRIVE=true;
+	
+	private int i = 0;
 	
 	
 	boolean driveType;
@@ -46,7 +48,7 @@ public class  UseDrive extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	(new CheckSwitch()).start();
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -62,7 +64,7 @@ public class  UseDrive extends Command {
     	//Print Statements
         //System.out.println("Infrared Value: " + Robot.sensors.getIRSensorValue()); 
     	//System.out.println("Encoder1 Rate: " + Robot.sensors.getEncoderRate(1) + "Encoder2 Rate: " + Robot.sensors.getEncoderRate(2));
-    	
+    	/*
     	double encoder1Accuracy;
     	double encoder2Accuracy;
     	double encoder1Rate = Robot.sensors.getEncoderRate(1);
@@ -70,7 +72,18 @@ public class  UseDrive extends Command {
     	System.out.println("Encoder1 Rate: " + encoder1Rate + "Encoder2 Rate: " + encoder2Rate);
     	
     	
- 
+
+    	encoder1Accuracy = encoder1Rate / MOTOR_1_CORRECT_SPEED * 100;
+    	encoder2Accuracy = encoder2Rate / MOTOR_2_CORRECT_SPEED * 100;
+    	
+    	System.out.println("Encoder1 Accuracy: " + encoder1Accuracy + " Encoder2 Accuracy: " + encoder2Accuracy);
+    	 */
+    	if (i++ % 0x40 == 0) System.out.println("Gyro angle: " + Robot.sensors.getGyro().getAngle());
+    	if (i % 0x1000 == 0) {
+    		System.out.println("Resetting gyro...");
+    		Robot.sensors.getGyro().reset();
+    		System.out.println("Done.");
+    	}
 
     }
     
