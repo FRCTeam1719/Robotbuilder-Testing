@@ -35,7 +35,7 @@ public class Sensors extends Subsystem {
     // here. Call these from Commands.
 
     public double getEncoderRate(int index){
-    	double encoderValue = -1;
+    	double encoderValue = (1.0D / 0.0D);
     	
     	if(index == 1){
     		encoderValue = quadratureEncoder1.getRate();
@@ -43,6 +43,7 @@ public class Sensors extends Subsystem {
     		encoderValue = quadratureEncoder2.getRate();
     		
     	}
+    	
     	return encoderValue;
     }
     

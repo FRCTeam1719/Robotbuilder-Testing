@@ -70,10 +70,7 @@ public class  UseDrive extends Command {
     	System.out.println("Encoder1 Rate: " + encoder1Rate + "Encoder2 Rate: " + encoder2Rate);
     	
     	
-    	encoder1Accuracy = encoder1Rate / MOTOR_1_CORRECT_SPEED * 100;
-    	encoder2Accuracy = encoder2Rate / MOTOR_2_CORRECT_SPEED * 100;
-    	
-    	System.out.println("Encoder1 Accuracy: " + encoder1Accuracy + " Encoder2 Accuracy: " + encoder2Accuracy);
+ 
 
     }
     
