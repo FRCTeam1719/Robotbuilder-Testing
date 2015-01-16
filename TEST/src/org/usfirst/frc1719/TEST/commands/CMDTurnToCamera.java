@@ -45,7 +45,7 @@ public class CMDTurnToCamera extends Command {
     }
 
     // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
+    public boolean isFinished() {
     	if(done) {
     		done = false;
     		return true;
@@ -59,5 +59,15 @@ public class CMDTurnToCamera extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    }
+    
+    /**
+     * !!! DANGER ZONE !!!
+     * Manually executes one cycle of the command. Only use if you know exactly
+     * what you are doing. Preferentially use the safer Command.start() method
+     * for automatic execution.
+     */
+    public void exec() {
+    	execute();
     }
 }
