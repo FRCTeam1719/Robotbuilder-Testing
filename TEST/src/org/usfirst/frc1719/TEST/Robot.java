@@ -36,13 +36,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 	private static int loopIterationNumber = 0;
 
-	public static enum AutoCMD {
+	public static enum EnumAutoCMD {
 		AUTO("Do NOT USE", null);
 		
 		final String name;
-		public final CommandOption cmd;
+		public final ICommandOption cmd;
 		
-		AutoCMD(String par1, CommandOption par2) {
+		EnumAutoCMD(String par1, ICommandOption par2) {
 			name = par1;
 			cmd = par2;
 		}
@@ -90,7 +90,7 @@ public class Robot extends IterativeRobot {
         
         //Adds radio button to choose autonomous command
         autoCMDChooser = new SendableChooser();
-        for(AutoCMD cmd : AutoCMD.values()) {
+        for(EnumAutoCMD cmd : EnumAutoCMD.values()) {
         	autoCMDChooser.addObject(cmd.name, cmd);
         }
         SmartDashboard.putData("Autonomous Style", autoCMDChooser);

@@ -42,13 +42,13 @@ public class  AutonomousCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//sets current autonomouscommand to command chosen from  smartdashboard radio button
-    	((Robot.AutoCMD) Robot.autoCMDChooser.getSelected()).cmd.doCMD();
+    	((Robot.EnumAutoCMD) Robot.autoCMDChooser.getSelected()).cmd.doCMD();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	//ends chosen command
-        return ((Robot.AutoCMD) Robot.autoCMDChooser.getSelected()).cmd.done();
+        return ((Robot.EnumAutoCMD) Robot.autoCMDChooser.getSelected()).cmd.done();
     }
 
     // Called once after isFinished returns true

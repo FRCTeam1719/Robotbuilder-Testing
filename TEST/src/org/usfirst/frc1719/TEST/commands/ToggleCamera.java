@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 //toggles the camera through preset positions to allow rapid intake of surroundings
-public class CMDToggleCamera extends Command {
+public class ToggleCamera extends Command {
 	//makes the program terminable
 	private boolean done = false;
 	//list of preset positions, currently 9 points in a 3x3 square
@@ -18,7 +18,7 @@ public class CMDToggleCamera extends Command {
 	//keeps track of the currently faced preset
 	private int i = 0;
 	
-    public CMDToggleCamera() {
+    public ToggleCamera() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
