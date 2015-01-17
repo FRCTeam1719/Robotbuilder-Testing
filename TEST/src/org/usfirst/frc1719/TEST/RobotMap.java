@@ -87,7 +87,7 @@ public class RobotMap {
         sensorsQuadratureEncoder2.setDistancePerPulse(1.0);
         sensorsQuadratureEncoder2.setPIDSourceParameter(PIDSourceParameter.kRate);
         
-        sensorsIRSensor = new AnalogInput(0);
+        sensorsIRSensor = new AnalogInput(3);
         LiveWindow.addSensor("Sensors", "IRSensor", sensorsIRSensor);
         
         cameraMountYServo = new Servo(2);
