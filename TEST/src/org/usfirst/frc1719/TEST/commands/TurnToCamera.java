@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CMDTurnToCamera extends Command {
+public class TurnToCamera extends Command {
 	
 	//checks if the command was just called
 	private boolean flag = true;
@@ -20,7 +20,7 @@ public class CMDTurnToCamera extends Command {
 	private static final double SPD = 0.5D;
 	private static final double NIL = 0.0D;
 	
-    public CMDTurnToCamera() {
+    public TurnToCamera() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drive);
@@ -54,7 +54,7 @@ public class CMDTurnToCamera extends Command {
     	}
     	
     	System.out.println("Current Error: " + (target - curr));
-    	double dir = ((target - curr) < 0) ? SPD : -SPD;
+    	double dir = (target < curr) ? -SPD : SPD;
     	Robot.drive.moveMechanum(NIL, NIL, dir);
     }
     
