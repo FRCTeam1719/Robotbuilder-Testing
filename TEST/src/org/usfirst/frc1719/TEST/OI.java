@@ -79,11 +79,6 @@ public class OI {
 
         joystick1 = new Joystick(0);
         
-        aButton = new JoystickButton(joystick1, 1);
-        aButton.whileHeld(new SpinMotor());
-        yButton = new JoystickButton(joystick1, 4);
-        yButton.whenPressed(new Solenoid1On());
-        yButton.whenReleased(new Solenoid1Off());
         
         rightBumper = new JoystickButton(joystick1, 6);
         rightBumper.whenPressed(new ToggleCamera());
@@ -99,8 +94,6 @@ public class OI {
 
         SmartDashboard.putData("UseDrive", new UseDrive());
 
-        SmartDashboard.putData("SpinMotor", new SpinMotor());
-
         SmartDashboard.putData("DriveServos", new DriveServos());
 
         SmartDashboard.putData("CentreCamera", new CentreCamera());
@@ -113,7 +106,6 @@ public class OI {
         xButton = new JoystickButton(joystick2, 3);
         xButton.whenPressed(new CentreCamera());
         aButton = new JoystickButton(joystick2, 1);
-        aButton.whileHeld(new SpinMotor());
         bButton = new JoystickButton(joystick2,2);
         bButton.whileHeld(new ExtendSpringStringThing());
         yButton = new JoystickButton(joystick2, 4);
