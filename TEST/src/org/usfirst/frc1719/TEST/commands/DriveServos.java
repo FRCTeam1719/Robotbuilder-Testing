@@ -41,12 +41,12 @@ public class  DriveServos extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//The camera can only be moved if the right joystick is pushed in
-    	if( !(Robot.oi.getJoystick1().getRawButton(JOYSTICK_RIGHT_BUTTON)) ) {
+    	if( !(Robot.oi.getJoystick2().getRawButton(JOYSTICK_RIGHT_BUTTON)) ) {
     		return;
     	}
     	//gets joystick values
-    	double joystickXPosition = Robot.oi.joystick1.getRawAxis(JOYSTICK_RIGHT_X);
-    	double joystickYPosition = Robot.oi.joystick1.getRawAxis(JOYSTICK_RIGHT_Y);
+    	double joystickXPosition = Robot.oi.joystick2.getRawAxis(JOYSTICK_RIGHT_X);
+    	double joystickYPosition = Robot.oi.joystick2.getRawAxis(JOYSTICK_RIGHT_Y);
     	
     	//pans using the values gotten from the joystick
     	Robot.cameraMount.setXServoPan(joystickXPosition);
