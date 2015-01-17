@@ -67,9 +67,9 @@ public class  UseDrive extends Command {
     	
     	//Print statements to determine/test sensor output
         //System.out.println("Infrared Value: " + Robot.sensors.getIRSensorValue()); 
-    	System.out.println("Encoder1 RPM: " + Robot.sensors.getEncoderRPM(1) + "  Infrared Value: " + Robot.sensors.getIRSensorValue());
-    	System.out.println("Encoder1 Count: " + Robot.sensors.getEncoderCount(1));
-    }
+    	double encoderRPM = Robot.sensors.correctEncoderValue(Robot.sensors.getEncoderRPM(1));
+    	System.out.println("Encoder1 RPM: " + encoderRPM + "  Infrared Value: " + Robot.sensors.getIRSensorValue());
+        }
     
     
     // Make this return true when this Command no longer needs to run execute()
