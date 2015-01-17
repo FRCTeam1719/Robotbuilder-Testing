@@ -24,11 +24,8 @@ import org.usfirst.frc1719.TEST.Robot;
 public class  UseDrive extends Command {
 	private static final int LEFT_X = 0;
 	private static final int LEFT_Y = 1;
-	private static final int RIGHT_X = 4;
 	private static final int RIGHT_Y = 5;
 	
-	private static final int MOTOR_1_CORRECT_SPEED = 1;
-	private static final int MOTOR_2_CORRECT_SPEED = 1;
 	private static final boolean TANK_DRIVE=false;
 	private static final boolean ARCADE_DRIVE=true;
 	
@@ -62,28 +59,35 @@ public class  UseDrive extends Command {
     		}
     	
     	//Print Statements
-        //System.out.println("Infrared Value: " + Robot.sensors.getIRSensorValue()); 
+<<<<<<< HEAD
+        System.out.println("Infrared Value: " + Robot.sensors.getIRSensorValue()); 
     	//System.out.println("Encoder1 Rate: " + Robot.sensors.getEncoderRate(1) + "Encoder2 Rate: " + Robot.sensors.getEncoderRate(2));
-    	/*
+    	
     	double encoder1Accuracy;
     	double encoder2Accuracy;
     	double encoder1Rate = Robot.sensors.getEncoderRate(1);
     	double encoder2Rate = Robot.sensors.getEncoderRate(2);
-    	System.out.println("Encoder1 Rate: " + encoder1Rate + "Encoder2 Rate: " + encoder2Rate);
+    	//System.out.println("Encoder1 Rate: " + encoder1Rate + "Encoder2 Rate: " + encoder2Rate);
     	
     	
-
     	encoder1Accuracy = encoder1Rate / MOTOR_1_CORRECT_SPEED * 100;
     	encoder2Accuracy = encoder2Rate / MOTOR_2_CORRECT_SPEED * 100;
     	
-    	System.out.println("Encoder1 Accuracy: " + encoder1Accuracy + " Encoder2 Accuracy: " + encoder2Accuracy);
+    	//System.out.println("Encoder1 Accuracy: " + encoder1Accuracy + " Encoder2 Accuracy: " + encoder2Accuracy);
+=======
+        //System.out.println("Infrared Value: " + Robot.sensors.getIRSensorValue()); 
+    	System.out.println("Encoder1 RPM: " + Robot.sensors.getEncoderRPM(1) + "  Infrared Value: " + Robot.sensors.getIRSensorValue());
+    	/*
     	 */
+    	System.out.println(Robot.sensors.getIRSensorValue());
+    	
     	if (i++ % 0x40 == 0) System.out.println("Gyro angle: " + Robot.sensors.getGyro().getAngle());
     	if (i % 0x1000 == 0) {
     		System.out.println("Resetting gyro...");
     		Robot.sensors.getGyro().reset();
     		System.out.println("Done.");
     	}
+>>>>>>> 0ece1e0dba2ca463ec7610e5b5377bb859fede9d
 
     }
     

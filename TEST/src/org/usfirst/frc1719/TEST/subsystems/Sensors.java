@@ -13,6 +13,7 @@ package org.usfirst.frc1719.TEST.subsystems;
 
 import org.usfirst.frc1719.TEST.RobotMap;
 
+
 //import org.usfirst.frc1719.TEST.commands.*;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -50,6 +51,7 @@ public class Sensors extends Subsystem {
     
     public int getIRSensorValue()
     {
+    	
     	return irSensor.getValue();
     }
     
@@ -63,6 +65,7 @@ public class Sensors extends Subsystem {
     }
     
     public DigitalInput getLimitSwitch() {
+    	
     	return limitSwitch;
     }
     
@@ -73,5 +76,16 @@ public class Sensors extends Subsystem {
     public Gyro getGyro() {
     	return gyro;
     }
+
+	public double getEncoderRPM(int index) {
+		
+		//get encoder rate
+		double encoderRate = getEncoderRate(index);
+		
+		//covert to RPM
+		double encoderRPM = encoderRate / 6;
+		
+		return encoderRPM;
+	}
 }
 
