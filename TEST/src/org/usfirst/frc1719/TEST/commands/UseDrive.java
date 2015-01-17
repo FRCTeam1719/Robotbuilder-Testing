@@ -24,10 +24,7 @@ import org.usfirst.frc1719.TEST.Robot;
 public class  UseDrive extends Command {
 	private static final int LEFT_X = 0;
 	private static final int LEFT_Y = 1;
-	private static final int RIGHT_Y = 5;
-	
-	private static final boolean TANK_DRIVE=false;
-	private static final boolean ARCADE_DRIVE=true;
+	private static final int RIGHT_X = 4;
 	
 	private int i = 0;
 	
@@ -50,15 +47,38 @@ public class  UseDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveType = ARCADE_DRIVE; //(boolean) Robot.driveChooser.getSelected();
-    	if(driveType==ARCADE_DRIVE){
-    		Robot.drive.moveArcade(Robot.oi.getJoystick1().getRawAxis(LEFT_Y), Robot.oi.getJoystick1().getRawAxis(LEFT_X));
-    		}
-    	if(driveType==TANK_DRIVE){
-    		Robot.drive.moveTank(Robot.oi.getJoystick1().getRawAxis(LEFT_Y), Robot.oi.getJoystick1().getRawAxis(RIGHT_Y));
-    		}
+    	double ly = Robot.oi.getJoystick1().getRawAxis(LEFT_Y);
+    	double lx = Robot.oi.getJoystick1().getRawAxis(LEFT_X);
+    	double rx = Robot.oi.getJoystick1().getRawAxis(RIGHT_X);
     	
+    	/* Paranoia -- div/0 */
+    	if(ly == 0.0D) Robot.drive.moveMechanum(Math.sqrt((ly * ly) + (lx * lx)), Math.signum(lx) * Math.PI / 2, rx);
+    	else Robot.drive.moveMechanum(Math.sqrt((ly * ly) + (lx * lx)), (ly < 0) ? (Math.PI - Math.atan(lx / ly)) : Math.atan(lx / ly), rx);
+    	
+    	//Print Statements
+
+        System.out.println("Infrared Value: " + Robot.sensors.getIRSensorValue()); 
+    	//System.out.println("Encoder1 Rate: " + Robot.sensors.getEncoderRate(1) + "Encoder2 Rate: " + Robot.sensors.getEncoderRate(2));
+    	
+    	
+    	//System.out.println("Encoder1 Rate: " + encoder1Rate + "Encoder2 Rate: " + encoder2Rate);
+    	
+    	
+    	
+    	//System.out.println("Encoder1 Accuracy: " + encoder1Accuracy + " Encoder2 Accuracy: " + encoder2Accuracy);
+
+        //System.out.println("Infrared Value: " + Robot.sensors.getIRSensorValue()); 
+    	System.out.println("Encoder1 RPM: " + Robot.sensors.getEncoderRPM(1) + "  Infrared Value: " + Robot.sensors.getIRSensorValue());
+    	/*
+    	 */
     	System.out.println(Robot.sensors.getIRSensorValue());
+    	
+    	if (i++ % 0x40 == 0) System.out.println("Gyro angle: " + Robot.sensors.getGyro().getAngle());
+    	if (i % 0x1000 == 0) {
+    		System.out.println("Resetting gyro...");
+    		Robot.sensors.getGyro().reset();
+    		System.out.println("Done.");
+    	}
     }
     
     
