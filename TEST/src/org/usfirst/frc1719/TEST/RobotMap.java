@@ -44,7 +44,9 @@ public class RobotMap {
     public static Compressor pneumaticsCompressor;
     public static Solenoid pneumaticsSolenoid1;
     public static Relay motorMotorRelay;
-    public static DigitalInput sensorsLimitSwitch;
+    public static DigitalInput sensorsLimitSwitch1;
+    public static DigitalInput sensorsLimitSwitchSpringStringThingExtended;
+    public static DigitalInput sensorsLimitSwitchSpringStringThingRetracted;
     public static Encoder sensorsQuadratureEncoder1;
     public static Encoder sensorsQuadratureEncoder2;
     public static AnalogInput sensorsIRSensor;
@@ -88,8 +90,14 @@ public class RobotMap {
         motorMotorRelay = new Relay(0);
         LiveWindow.addActuator("Motor", "MotorRelay", motorMotorRelay);
         
-        sensorsLimitSwitch = new DigitalInput(0);
-        LiveWindow.addSensor("Sensors", "LimitSwitch", sensorsLimitSwitch);
+        sensorsLimitSwitch1 = new DigitalInput(0);
+        LiveWindow.addSensor("Sensors", "LimitSwitch", sensorsLimitSwitch1);
+        
+        sensorsLimitSwitchSpringStringThingExtended = new DigitalInput(1);
+        LiveWindow.addSensor("Sensors", "LimitSwitch SpringStringThing", sensorsLimitSwitchSpringStringThingExtended);
+        
+        sensorsLimitSwitchSpringStringThingExtended = new DigitalInput(2);
+        LiveWindow.addSensor("Sensors", "LimitSwitch SpringStringThing", sensorsLimitSwitchSpringStringThingRetracted);
         
         sensorsQuadratureEncoder1 = new Encoder(1, 2, false, EncodingType.k4X);
         LiveWindow.addSensor("Sensors", "Quadrature Encoder 1", sensorsQuadratureEncoder1);
