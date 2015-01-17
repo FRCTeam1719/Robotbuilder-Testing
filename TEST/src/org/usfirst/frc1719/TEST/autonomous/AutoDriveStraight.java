@@ -9,7 +9,7 @@ public class AutoDriveStraight implements CommandOption {
 	
 	@Override
 	public void doCMD() {
-		Robot.drive.moveArcade(SPEED, ANGLE);
+		Robot.drive.moveMechanum(SPEED, ANGLE, ANGLE);
 	}
 
 	@Override
