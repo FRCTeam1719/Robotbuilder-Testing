@@ -118,5 +118,9 @@ public class Sensors extends Subsystem {
 		
 		return encoderCPS;
 	}
+	
+	public double correctEncoderValue(double badRPM) {
+		return badRPM * 1.4;
+	}
 }
 
