@@ -17,6 +17,7 @@ import org.usfirst.frc1719.TEST.Robot;
 /**
  *
  */
+//sets solenoid to true
 public class  CMDSolenoid1On extends Command {
 
     public CMDSolenoid1On() {
@@ -35,11 +36,12 @@ public class  CMDSolenoid1On extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println("BALBOBAGGINS");
+    	//sets solenoid to true
     	Robot.pneumatics.getSolenoid1().set(true);
     }
 
     // Make this return true when this Command no longer needs to run execute()
+    //currently never ends (can be interrupted), memory issues?
     protected boolean isFinished() {
     	return false;
     }

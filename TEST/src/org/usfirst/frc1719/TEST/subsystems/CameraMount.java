@@ -23,10 +23,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 
 public class CameraMount extends Subsystem {
+	//Gives this command access to the camera servos
 	Servo yServo = RobotMap.cameraMountYServo;
     Servo xServo = RobotMap.cameraMountXServo;
-    double panPositionX = 0.0D; //for vecch's code
+    //stores data when called
+    double panPositionX = 0.0D;
     double panPositionY = 0.0D;
+    //Magic numbers
+    //min and max servo positions, useful max for y servo (cannot look straight up), how fast servo pans
     private static final double SERVO_MIN = 0.0D;
     private static final double SERVO_MAX = 1.0D;
     private static final double SERVOY_MAX = 0.6D;
@@ -51,6 +55,7 @@ public class CameraMount extends Subsystem {
     	setDefaultCommand(new DriveServos());
     }
     
+  //sets the x servo to given position
     public void setXServoRaw(double position) {
     	panPositionX = position;
     	xServo.set(position);
@@ -60,27 +65,34 @@ public class CameraMount extends Subsystem {
     public void setXServo(double position) {
     	
     	// Map the joystick; position to the servo position
+    	//Magic numbers: decreases sensitivity at the cost of range
     	position += 2;
     	position /= 4;
     	panPositionX = position;
     	xServo.set(position);
     }
     
-    // Make Servo pan slower
+    //slowly pans in the direction of the joystick
     public void setXServoPan(double joystickPosition) {
+    	// Make Servo pan slower
     	panPositionX += (joystickPosition * SERVO_INCREMENT);
+    	//makes sure the servo stays within its range
     	if (panPositionX < SERVO_MIN) panPositionX = SERVO_MIN;
     	if (panPositionX > SERVO_MAX) panPositionX = SERVO_MAX;
     	xServo.set(panPositionX);
     }
     
+    //sets the y servo to given position
     public void setYServoRaw(double position) {
     	panPositionY = position;
     	yServo.set(position);
     }
     
+    //slowly pans in the direction of the joystick
     public void setYServoPan(double joystickPosition) {
+    	//makes servo pan servo
     	panPositionY -= (joystickPosition * SERVO_INCREMENT);
+    	//makes sure the servos dont exceed their range
     	if (panPositionY < SERVO_MIN) panPositionY = SERVO_MIN;
     	if (panPositionY > SERVOY_MAX) panPositionY = SERVOY_MAX;
     	yServo.set(panPositionY);
@@ -88,8 +100,8 @@ public class CameraMount extends Subsystem {
     
     //Same as setXServo, but for the y servo
     public void setYServo(double position) {
-    	
     	// Map  the joystick position to the servo position
+    	//decreases sensitivity at the cost of range
     	position -= 2;
     	position /= -4;
     	
@@ -97,6 +109,7 @@ public class CameraMount extends Subsystem {
     	yServo.set(position);
     }
     
+    //sets the servo to .5,.5 the center
     public void center() {
     	setXServoRaw(SERVO_CENTER);
     	setYServoRaw(SERVO_CENTER);

@@ -18,8 +18,11 @@ import org.usfirst.frc1719.TEST.Robot;
  *
  */
 public class  DriveServos extends Command {
-	final int JOYSTICK_LEFT_X = 4;
-	final int JOYSTICK_LEFT_Y = 5;
+	//Magic numbers
+	//finds the input from the numbers
+	final int JOYSTICK_RIGHT_X = 4;
+	final int JOYSTICK_RIGHT_Y = 5;
+	final int JOYSTICK_RIGHT_BUTTON = 10;
 
     public DriveServos() {
         // Use requires() here to declare subsystem dependencies
@@ -37,13 +40,15 @@ public class  DriveServos extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if( !(Robot.oi.getJoystick1().getRawButton(10)) ) {
+    	//The camera can only be moved if the right joystick is pushed in
+    	if( !(Robot.oi.getJoystick1().getRawButton(JOYSTICK_RIGHT_BUTTON)) ) {
     		return;
     	}
-    	double joystickXPosition = Robot.oi.joystick1.getRawAxis(JOYSTICK_LEFT_X);
-    	double joystickYPosition = Robot.oi.joystick1.getRawAxis(JOYSTICK_LEFT_Y);
+    	//gets joystick values
+    	double joystickXPosition = Robot.oi.joystick1.getRawAxis(JOYSTICK_RIGHT_X);
+    	double joystickYPosition = Robot.oi.joystick1.getRawAxis(JOYSTICK_RIGHT_Y);
     	
-    	
+    	//pans using the values gotten from the joystick
     	Robot.cameraMount.setXServoPan(joystickXPosition);
     	Robot.cameraMount.setYServoPan(joystickYPosition);
     	

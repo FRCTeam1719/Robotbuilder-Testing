@@ -18,8 +18,11 @@ import org.usfirst.frc1719.TEST.Robot;
  *
  */
 public class  CentreCamera extends Command {
-
+	//Magic numbers
+	//camera servos go from 0 to 1, .5 is center
 	final double CENTER = .5;
+	
+	//makes the program terminable
 	boolean done = false;
     public CentreCamera() {
         // Use requires() here to declare subsystem dependencies
@@ -37,11 +40,10 @@ public class  CentreCamera extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//sets the camera to .5,.5 the center
     	Robot.cameraMount.setXServo(CENTER);
     	Robot.cameraMount.setYServo(CENTER);
     	done = true;
-    	
- 
     }
 
     // Make this return true when this Command no longer needs to run execute()

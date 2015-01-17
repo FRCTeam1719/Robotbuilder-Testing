@@ -7,12 +7,15 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
+//toggles the camera through preset positions to allow rapid intake of surroundings
 public class CMDToggleCamera extends Command {
-
+	//makes the program terminable
 	private boolean done = false;
+	//list of preset positions, currently 9 points in a 3x3 square
 	private double[][] presets = new double[][] {{0.0D, 1.0D}, {0.5D, 1.0D}, {1.0D, 1.0D},
 			{0.0D, 0.5D}, {0.5D, 0.5D}, {1.0D, 0.5D}, {0.0D, 0.0D}, {0.5D, 0.0D},
 			{1.0D, 0.0D}};
+	//keeps track of the currently faced preset
 	private int i = 0;
 	
     public CMDToggleCamera() {
@@ -26,9 +29,12 @@ public class CMDToggleCamera extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//increments i and resets i if it exceeds the number of presets
     	if(++i >= presets.length) i = 0;
+    	//rotates camera to preset i
     	Robot.cameraMount.setXServoRaw(presets[i][0]);
     	Robot.cameraMount.setYServoRaw(presets[i][1]);
+    	//terminates function
     	done = true;
     }
 

@@ -12,17 +12,13 @@
 package org.usfirst.frc1719.TEST;
 
 import org.usfirst.frc1719.TEST.commands.AutonomousCommand;
-import org.usfirst.frc1719.TEST.commands.BALBOBAGGINS;
 import org.usfirst.frc1719.TEST.commands.CMDSolenoid1Off;
 import org.usfirst.frc1719.TEST.commands.CMDSolenoid1On;
 import org.usfirst.frc1719.TEST.commands.CMDToggleCamera;
 import org.usfirst.frc1719.TEST.commands.CMDTurnToCamera;
 import org.usfirst.frc1719.TEST.commands.CentreCamera;
-import org.usfirst.frc1719.TEST.commands.CheckSwitch;
 import org.usfirst.frc1719.TEST.commands.DriveServos;
-//import org.usfirst.frc1719.TEST.commands.SetCameraPosition;
 import org.usfirst.frc1719.TEST.commands.SpinMotor;
-import org.usfirst.frc1719.TEST.commands.StopMotor;
 import org.usfirst.frc1719.TEST.commands.UseDrive;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -83,7 +79,6 @@ public class OI {
         xButtonPressed = new JoystickButton(joystick1, 3);
         xButtonPressed.whenPressed(new CentreCamera());
         aButtonReleaed = new JoystickButton(joystick1, 1);
-        aButtonReleaed.whenReleased(new StopMotor());
         aButton = new JoystickButton(joystick1, 1);
         aButton.whenPressed(new SpinMotor());
         yButton = new JoystickButton(joystick1, 4);
@@ -99,15 +94,9 @@ public class OI {
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
 
-        SmartDashboard.putData("BALBOBAGGINS", new BALBOBAGGINS());
-
         SmartDashboard.putData("UseDrive", new UseDrive());
 
         SmartDashboard.putData("SpinMotor", new SpinMotor());
-
-        SmartDashboard.putData("StopMotor", new StopMotor());
-
-        SmartDashboard.putData("CheckSwitch", new CheckSwitch());
 
         SmartDashboard.putData("DriveServos", new DriveServos());
 
