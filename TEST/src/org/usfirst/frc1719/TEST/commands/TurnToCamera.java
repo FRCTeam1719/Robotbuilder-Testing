@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CMDTurnToCamera extends Command {
+public class TurnToCamera extends Command {
 
 	private boolean flag = true;
 	private boolean done = false;
@@ -15,7 +15,7 @@ public class CMDTurnToCamera extends Command {
 	private static final double SPD = 0.5D;
 	private static final double NIL = 0.0D;
 	
-    public CMDTurnToCamera() {
+    public TurnToCamera() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drive);

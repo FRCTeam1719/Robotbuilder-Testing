@@ -1,6 +1,6 @@
 package org.usfirst.frc1719.TEST.autonomous;
 
-public interface CommandOption {
+public interface ICommandOption {
 	/**
 	 * Called repeatedly during autonomous when selected.
 	 */

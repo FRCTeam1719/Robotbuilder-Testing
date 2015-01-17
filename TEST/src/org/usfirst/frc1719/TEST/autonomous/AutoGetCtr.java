@@ -1,12 +1,12 @@
 package org.usfirst.frc1719.TEST.autonomous;
 
 import org.usfirst.frc1719.TEST.Robot;
-import org.usfirst.frc1719.TEST.commands.CMDTurnToCamera;
+import org.usfirst.frc1719.TEST.commands.TurnToCamera;
 
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class AutoGetCtr implements CommandOption {
+public class AutoGetCtr implements ICommandOption {
 
 	// Ranges are in mV. lower voltage = higher distance.
 	private static final int RANGE = 500;
@@ -17,7 +17,7 @@ public class AutoGetCtr implements CommandOption {
 	private static final int STAGES = 7;
 	private boolean cm_mv_dir = false;
 	private int stage = 0;
-	private CMDTurnToCamera tt_cam = new CMDTurnToCamera();
+	private TurnToCamera tt_cam = new TurnToCamera();
 	
 	@Override
 	public void doCMD() {

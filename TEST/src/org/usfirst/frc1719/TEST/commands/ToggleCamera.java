@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CMDToggleCamera extends Command {
+public class ToggleCamera extends Command {
 
 	private boolean done = false;
 	private double[][] presets = new double[][] {{0.0D, 1.0D}, {0.5D, 1.0D}, {1.0D, 1.0D},
@@ -15,7 +15,7 @@ public class CMDToggleCamera extends Command {
 			{1.0D, 0.0D}};
 	private int i = 0;
 	
-    public CMDToggleCamera() {
+    public ToggleCamera() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }

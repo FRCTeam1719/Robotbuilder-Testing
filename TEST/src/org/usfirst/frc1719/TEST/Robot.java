@@ -12,7 +12,7 @@
 package org.usfirst.frc1719.TEST;
 
 import org.usfirst.frc1719.TEST.autonomous.AutoGetCtr;
-import org.usfirst.frc1719.TEST.autonomous.CommandOption;
+import org.usfirst.frc1719.TEST.autonomous.ICommandOption;
 import org.usfirst.frc1719.TEST.commands.AutonomousCommand;
 import org.usfirst.frc1719.TEST.subsystems.CameraMount;
 import org.usfirst.frc1719.TEST.subsystems.Drive;
@@ -39,13 +39,19 @@ public class Robot extends IterativeRobot {
 	final boolean ARCADE_DRIVE = true;
 	final boolean TANK_DRIVE = false;
 
+	/**
+	 * When making an autonomous mode, first implement ICommandOption, then create an enum value here.
+	 * String is the human-frendly name, then follow with an instance of your class.
+	 * @author duncan
+	 *
+	 */
 	public static enum AutoCMD {
 		GET_CONTAINER("Get Recycling Containers from step", new AutoGetCtr());
 		
 		final String name;
-		public final CommandOption cmd;
+		public final ICommandOption cmd;
 		
-		AutoCMD(String par1, CommandOption par2) {
+		AutoCMD(String par1, ICommandOption par2) {
 			name = par1;
 			cmd = par2;
 		}

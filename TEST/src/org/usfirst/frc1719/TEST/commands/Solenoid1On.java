@@ -17,9 +17,9 @@ import org.usfirst.frc1719.TEST.Robot;
 /**
  *
  */
-public class  CMDSolenoid1On extends Command {
+public class  Solenoid1On extends Command {
 
-    public CMDSolenoid1On() {
+    public Solenoid1On() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 
