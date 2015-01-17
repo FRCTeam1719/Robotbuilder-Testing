@@ -8,8 +8,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class AutoGetCtr implements CommandOption {
 
-	private static final double RANGE = 2.0D;
-	private static final double RANGE_2 = 3.0D;
+	// Ranges are in mV. lower voltage = higher distance.
+	private static final int RANGE = 500;
+	private static final int RANGE_2 = 400;
 	private static final double SCAN_SPEED = 0.5D;
 	private static final double FORWARD_SPD = 1.0D;
 	private static final double FORWARD_ANGLE = 0.0D;
@@ -35,14 +36,14 @@ public class AutoGetCtr implements CommandOption {
 					break;
 				}
 			case 2:
-				if(getIRDistance() < RANGE) stage++;
+				if(getIRDistance() > RANGE) stage++;
 				else {
 					Robot.drive.moveTank(FORWARD_SPD, FORWARD_SPD); // !!! Delete this when Mechanum is implemented !!!
 					Robot.drive.moveMechanum(FORWARD_ANGLE, FORWARD_SPD, FORWARD_ANGLE);
 					break;
 				}
 			case 3:
-				if(getIRDistance() > RANGE_2) stage++;
+				if(getIRDistance() < RANGE_2) stage++;
 				else {
 					Robot.drive.moveTank(FORWARD_SPD, -FORWARD_SPD); // !!! Delete this when Mechanum is implemented !!!
 					Robot.drive.moveMechanum(Math.PI / 2, FORWARD_SPD, FORWARD_ANGLE);
@@ -56,7 +57,7 @@ public class AutoGetCtr implements CommandOption {
 					break;
 				}
 			case 5:
-				if(getIRDistance() < RANGE) stage++;
+				if(getIRDistance() > RANGE) stage++;
 				else {
 					Robot.drive.moveTank(-FORWARD_SPD, FORWARD_SPD); // !!! Delete this when Mechanum is implemented !!!
 					Robot.drive.moveMechanum(-Math.PI / 2, FORWARD_SPD, FORWARD_ANGLE);
@@ -79,8 +80,7 @@ public class AutoGetCtr implements CommandOption {
 	}
 	
 	private double getIRDistance() {
-		// !!! Not implemented yet !!!
-		return -1.0D;
+		return Robot.sensors.getIRSensorValue();
 	}
 
 }
