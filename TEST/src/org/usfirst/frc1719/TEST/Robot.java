@@ -112,6 +112,8 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putBoolean("Target Acquired - Container", false);
         SmartDashboard.putBoolean("Target Acquired - Yellow", false);
         
+        // Temporary until we get a working distance sensor
+        SmartDashboard.putNumber("Distance in front (cm)", 1000.0D);
     }
 
     /**

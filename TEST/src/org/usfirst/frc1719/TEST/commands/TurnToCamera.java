@@ -41,7 +41,7 @@ public class TurnToCamera extends Command {
     		return;
     	}
     	System.out.println("Current Error: " + (target - curr));
-    	double dir = ((target - curr) < 0) ? SPD : -SPD;
+    	double dir = ((target - curr) < 0) ? -SPD : SPD;
     	Robot.drive.moveMechanum(NIL, NIL, dir);
     }
 

@@ -14,8 +14,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class AutoGetCtr implements ICommandOption {
 
 	// Ranges are in mV. lower voltage = higher distance.
-	private static final int RANGE = 500;
-	private static final int RANGE_2 = 400;
+	private static final double RANGE = 150.0D;
+	private static final double RANGE_2 = 250.0D;
 	private static final double SCAN_SPEED = 0.5D;
 	private static final double FORWARD_SPD = 1.0D;
 	private static final double FORWARD_ANGLE = 0.0D;
@@ -41,13 +41,13 @@ public class AutoGetCtr implements ICommandOption {
 					break;
 				}
 			case 2:
-				if(getIRDistance() > RANGE) stage++;
+				if(getDistance() > RANGE) stage++;
 				else {
 					Robot.drive.moveMechanum(FORWARD_ANGLE, FORWARD_SPD, FORWARD_ANGLE);
 					break;
 				}
 			case 3:
-				if(getIRDistance() < RANGE_2) stage++;
+				if(getDistance() < RANGE_2) stage++;
 				else {
 					Robot.drive.moveMechanum(Math.PI / 2, FORWARD_SPD, FORWARD_ANGLE);
 					break;
@@ -60,7 +60,7 @@ public class AutoGetCtr implements ICommandOption {
 					break;
 				}
 			case 5:
-				if(getIRDistance() > RANGE) stage++;
+				if(getDistance() > RANGE) stage++;
 				else {
 					Robot.drive.moveMechanum(-Math.PI / 2, FORWARD_SPD, FORWARD_ANGLE);
 					break;
@@ -80,8 +80,8 @@ public class AutoGetCtr implements ICommandOption {
 		return false;
 	}
 	
-	private double getIRDistance() {
-		return Robot.sensors.getIRSensorValue();
+	private double getDistance() {
+		return SmartDashboard.getNumber("Distance in front (cm)"); // change for distance sensor when ready
 	}
 
 }
