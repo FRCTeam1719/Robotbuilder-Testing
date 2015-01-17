@@ -22,15 +22,16 @@ import org.usfirst.frc1719.TEST.Robot;
  *
  */
 public class  UseDrive extends Command {
+	//Magic numbers: these numbers determine the input from the joystick
 	private static final int LEFT_X = 0;
 	private static final int LEFT_Y = 1;
 	private static final int RIGHT_X = 4;
+	//Tolerance for dead zone to make it possible to completely stop the robot
 	private static final double TOLERANCE = 0.3D;
-	
+	//is used to slow down the print return of the gyro when testing
 	private int i = 0;
 	
 	
-	boolean driveType;
     public UseDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -48,21 +49,25 @@ public class  UseDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//gets values from the joystick
     	double ly = Robot.oi.getJoystick1().getRawAxis(LEFT_Y);
-    	if (Math.abs(ly) < TOLERANCE) ly = 0.0D;
     	double lx = Robot.oi.getJoystick1().getRawAxis(LEFT_X);
-    	if (Math.abs(lx) < TOLERANCE) lx = 0.0D;
     	double rx = Robot.oi.getJoystick1().getRawAxis(RIGHT_X);
+    	
+    	//creates a dead zone within tolerance in order to make it possible to stop the robot
+    	if (Math.abs(ly) < TOLERANCE) ly = 0.0D;
+    	if (Math.abs(lx) < TOLERANCE) lx = 0.0D;
     	if (Math.abs(rx) < TOLERANCE) rx = 0.0D;
     	
+    	//Drives (mechanum) given the values from the joystick
     	Robot.drive.moveCartesian(lx, ly, rx);
     	
-
+    	//Print statements to determine/test sensor output
         //System.out.println("Infrared Value: " + Robot.sensors.getIRSensorValue()); 
     	System.out.println("Encoder1 RPM: " + Robot.sensors.getEncoderRPM(1) + "  Infrared Value: " + Robot.sensors.getIRSensorValue());
     	System.out.println("Encoder1 Count: " + Robot.sensors.getEncoderCount(1));
-    	System.out.println(Robot.sensors.getIRSensorValue());
     	
+    	//slows down the gyro sensor returns
     	if (i++ % 0x40 == 0) System.out.println("Gyro angle: " + Robot.sensors.getGyro().getAngle());
     	if (i % 0x1000 == 0) {
     		System.out.println("Resetting gyro...");

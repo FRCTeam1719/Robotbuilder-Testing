@@ -17,6 +17,7 @@ import org.usfirst.frc1719.TEST.Robot;
 /**
  *
  */
+//sets solenoid to false
 public class  CMDSolenoid1Off extends Command {
 
     public CMDSolenoid1Off() {
@@ -35,10 +36,12 @@ public class  CMDSolenoid1Off extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//sets solenoid to false
     	Robot.pneumatics.getSolenoid1().set(false);
     }
 
     // Make this return true when this Command no longer needs to run execute()
+    //currently not terminable (other functions called sooner interrupt/override this one), memory issues?
     protected boolean isFinished() {
         return false;
     }

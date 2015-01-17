@@ -39,8 +39,10 @@ public class Sensors extends Subsystem {
     // here. Call these from Commands.
 
     public double getEncoderRate(int index){
-    	double encoderValue = (1.0D / 0.0D);
+    	//returns an impossibly consistent, recognizable value if not working
+    	double encoderValue = (-1337.0D);
     	
+    	//reads chosen encoder
     	if(index == 1){
     		encoderValue = quadratureEncoder1.getRate();
     	}else if(index == 2){
@@ -53,7 +55,7 @@ public class Sensors extends Subsystem {
     
     public int getIRSensorValue()
     {
-    	
+    	//returns infrared sensor value
     	return irSensor.getValue();
     }
     
@@ -72,6 +74,7 @@ public class Sensors extends Subsystem {
     }
     
     public Gyro getGyro() {
+    	//returns attached gyro so it can be accessed
     	return gyro;
     }
 

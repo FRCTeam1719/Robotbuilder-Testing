@@ -40,11 +40,11 @@ public class Pneumatics extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    
+    //get compressor state
     public Compressor getCompressor() {
     	return compressor;
     }
-    
+    //get solenoid state
     public Solenoid getSolenoid1() {
     	return solenoid1;
     }
