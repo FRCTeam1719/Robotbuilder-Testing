@@ -38,14 +38,12 @@ public class AutoGetCtr implements CommandOption {
 			case 2:
 				if(getIRDistance() > RANGE) stage++;
 				else {
-					Robot.drive.moveTank(FORWARD_SPD, FORWARD_SPD); // !!! Delete this when Mechanum is implemented !!!
 					Robot.drive.moveMechanum(FORWARD_ANGLE, FORWARD_SPD, FORWARD_ANGLE);
 					break;
 				}
 			case 3:
 				if(getIRDistance() < RANGE_2) stage++;
 				else {
-					Robot.drive.moveTank(FORWARD_SPD, -FORWARD_SPD); // !!! Delete this when Mechanum is implemented !!!
 					Robot.drive.moveMechanum(Math.PI / 2, FORWARD_SPD, FORWARD_ANGLE);
 					break;
 				}
@@ -59,14 +57,12 @@ public class AutoGetCtr implements CommandOption {
 			case 5:
 				if(getIRDistance() > RANGE) stage++;
 				else {
-					Robot.drive.moveTank(-FORWARD_SPD, FORWARD_SPD); // !!! Delete this when Mechanum is implemented !!!
 					Robot.drive.moveMechanum(-Math.PI / 2, FORWARD_SPD, FORWARD_ANGLE);
 					break;
 				}
 			case 6:
 				if(Robot.fr.getRetracted()) stage++;
 				else {
-					Robot.drive.moveTank(-FORWARD_SPD, -FORWARD_SPD); // !!! Delete this when Mechanum is implemented !!!
 					Robot.drive.moveMechanum(Math.PI, FORWARD_SPD, FORWARD_ANGLE);
 					Robot.fr.getExtMotor().set(Relay.Value.kReverse);
 					break;
