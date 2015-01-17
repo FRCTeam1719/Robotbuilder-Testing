@@ -61,16 +61,6 @@ public class  UseDrive extends Command {
         //System.out.println("Infrared Value: " + Robot.sensors.getIRSensorValue()); 
     	System.out.println("Encoder1 RPM: " + Robot.sensors.getEncoderRPM(1) + "  Infrared Value: " + Robot.sensors.getIRSensorValue());
     	System.out.println("Encoder1 Count: " + Robot.sensors.getEncoderCount(1));
-    	System.out.println(Robot.sensors.getIRSensorValue());
-    	
-    	if (i++ % 0x40 == 0) System.out.println("Gyro angle: " + Robot.sensors.getGyro().getAngle());
-    	if (i % 0x1000 == 0) {
-    		System.out.println("Resetting gyro...");
-    		Robot.sensors.getGyro().reset();
-    		System.out.println("Done.");
-    	}
-
-
     }
     
     
