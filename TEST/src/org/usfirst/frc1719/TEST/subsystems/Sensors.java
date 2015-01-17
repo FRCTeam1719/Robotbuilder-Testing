@@ -11,7 +11,9 @@
 
 package org.usfirst.frc1719.TEST.subsystems;
 
+import org.usfirst.frc1719.TEST.Robot;
 import org.usfirst.frc1719.TEST.RobotMap;
+
 
 
 //import org.usfirst.frc1719.TEST.commands.*;
@@ -82,6 +84,36 @@ public class Sensors extends Subsystem {
 		double encoderRPM = encoderRate / 6;
 		
 		return encoderRPM;
+	}
+	
+	public double getEncoderCount(int index) {
+		
+		double encoderCount = 0;
+		
+		if (index == 1) {
+			encoderCount = quadratureEncoder1.get();
+		}
+		
+		return encoderCount;
+	}
+	
+	public double getEncoderCountPerLoop(int index) {
+			double encoderCount = 0;
+			
+			if (index == 1) {
+				encoderCount = getEncoderCount(1);
+			}
+			
+			double encoderCountPerLoop = encoderCount / Robot.getLoopIterationNumber();
+			
+			return encoderCountPerLoop;
+	}
+	
+	public double getEncoderCountPerSecond(int index) {
+		
+		double encoderCPS = getEncoderCountPerLoop(index) * 100;
+		
+		return encoderCPS;
 	}
 }
 

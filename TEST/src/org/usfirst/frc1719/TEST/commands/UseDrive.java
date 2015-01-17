@@ -57,22 +57,10 @@ public class  UseDrive extends Command {
     	
     	Robot.drive.moveCartesian(lx, ly, rx);
     	
-    	//Print Statements
-
-        System.out.println("Infrared Value: " + Robot.sensors.getIRSensorValue()); 
-    	//System.out.println("Encoder1 Rate: " + Robot.sensors.getEncoderRate(1) + "Encoder2 Rate: " + Robot.sensors.getEncoderRate(2));
-    	
-    	
-    	//System.out.println("Encoder1 Rate: " + encoder1Rate + "Encoder2 Rate: " + encoder2Rate);
-    	
-    	
-    	
-    	//System.out.println("Encoder1 Accuracy: " + encoder1Accuracy + " Encoder2 Accuracy: " + encoder2Accuracy);
 
         //System.out.println("Infrared Value: " + Robot.sensors.getIRSensorValue()); 
     	System.out.println("Encoder1 RPM: " + Robot.sensors.getEncoderRPM(1) + "  Infrared Value: " + Robot.sensors.getIRSensorValue());
-    	/*
-    	 */
+    	System.out.println("Encoder1 Count: " + Robot.sensors.getEncoderCount(1));
     	System.out.println(Robot.sensors.getIRSensorValue());
     	
     	if (i++ % 0x40 == 0) System.out.println("Gyro angle: " + Robot.sensors.getGyro().getAngle());

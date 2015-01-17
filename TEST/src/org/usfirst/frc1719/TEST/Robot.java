@@ -36,6 +36,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 	final boolean ARCADE_DRIVE = true;
 	final boolean TANK_DRIVE = false;
+	private static int loopIterationNumber = 0;
 
 	public static enum AutoCMD {
 		AUTO("Do NOT USE", null);
@@ -98,6 +99,7 @@ public class Robot extends IterativeRobot {
         	autoCMDChooser.addObject(cmd.name, cmd);
         }
         SmartDashboard.putData("Autonomous Style", autoCMDChooser);
+        
     }
 
     /**
@@ -121,6 +123,7 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
+    	loopIterationNumber++;
         Scheduler.getInstance().run();
     }
 
@@ -136,6 +139,7 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
+    	loopIterationNumber++;
         Scheduler.getInstance().run();
     }
 
@@ -143,6 +147,11 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during test mode
      */
     public void testPeriodic() {
+    	loopIterationNumber++;
         //LiveWindow.run();
+    }
+    
+    public static int getLoopIterationNumber() {
+    	return loopIterationNumber;
     }
 }
