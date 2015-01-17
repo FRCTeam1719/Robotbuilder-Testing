@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class SpringStringThing extends Subsystem{
     Relay motorRelay = RobotMap.springStringThingMotor;
-    Solenoid solenoid1 = RobotMap.springStringThingPiston;
+    Solenoid solenoid1 = RobotMap.springStringThingSolenoid;
     
     public void extend(){
     	motorRelay.set(Relay.Value.kForward);
