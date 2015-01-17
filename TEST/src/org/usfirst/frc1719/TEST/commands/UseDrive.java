@@ -25,6 +25,7 @@ public class  UseDrive extends Command {
 	private static final int LEFT_X = 0;
 	private static final int LEFT_Y = 1;
 	private static final int RIGHT_X = 4;
+	private static final double TOLERANCE = 0.3D;
 	
 	private int i = 0;
 	
@@ -48,12 +49,13 @@ public class  UseDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	double ly = Robot.oi.getJoystick1().getRawAxis(LEFT_Y);
+    	if (Math.abs(ly) < TOLERANCE) ly = 0.0D;
     	double lx = Robot.oi.getJoystick1().getRawAxis(LEFT_X);
+    	if (Math.abs(lx) < TOLERANCE) lx = 0.0D;
     	double rx = Robot.oi.getJoystick1().getRawAxis(RIGHT_X);
+    	if (Math.abs(rx) < TOLERANCE) rx = 0.0D;
     	
-    	/* Paranoia -- div/0 */
-    	if(ly == 0.0D) Robot.drive.moveMechanum(Math.sqrt((ly * ly) + (lx * lx)), Math.signum(lx) * Math.PI / 2, rx);
-    	else Robot.drive.moveMechanum(Math.sqrt((ly * ly) + (lx * lx)), (ly < 0) ? (Math.PI - Math.atan(lx / ly)) : Math.atan(lx / ly), rx);
+    	Robot.drive.moveCartesian(lx, ly, rx);
     	
     	//Print Statements
 

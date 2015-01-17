@@ -13,6 +13,7 @@ public class CMDTurnToCamera extends Command {
 	private double target = 0;
 	private static final double TOLERANCE = 15.0D;
 	private static final double SPD = 0.5D;
+	private static final double NIL = 0.0D;
 	
     public CMDTurnToCamera() {
         // Use requires() here to declare subsystem dependencies
@@ -41,7 +42,7 @@ public class CMDTurnToCamera extends Command {
     	}
     	System.out.println("Current Error: " + (target - curr));
     	double dir = ((target - curr) < 0) ? SPD : -SPD;
-    	Robot.drive.moveTank(dir, -dir);
+    	Robot.drive.moveMechanum(NIL, NIL, dir);
     }
 
     // Make this return true when this Command no longer needs to run execute()

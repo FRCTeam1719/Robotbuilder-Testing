@@ -38,10 +38,7 @@ public class Robot extends IterativeRobot {
 	final boolean TANK_DRIVE = false;
 
 	public static enum AutoCMD {
-		DRIVE_STRAIGHT("Drive Straight", new AutoDriveStraight()),
-		CURVE_RIGHT("Curve Right", new AutoCurveRight()),
-		SPIN_CW("Spin Clockwise", new AutoSpinCW()),
-		SPIN_ACW("Spin Anticlockwise", new AutoSpinACW());
+		AUTO("Do NOT USE", null);
 		
 		final String name;
 		public final CommandOption cmd;
