@@ -26,11 +26,13 @@ public class  UseDrive extends Command {
 	private static final int LEFT_X = 0;
 	private static final int LEFT_Y = 1;
 	private static final int RIGHT_X = 4;
-	private static final int RIGHT_Y = 5;
+	//Currently unused
+	//private static final int RIGHT_Y = 5;
 	//Tolerance for dead zone to make it possible to completely stop the robot
 	private static final double TOLERANCE = 0.3D;
 	//is used to slow down the print return of the gyro when testing
-	private int i = 0;
+	//Currently Unused
+	//private int i = 0;
 	
 	
     public UseDrive() {
