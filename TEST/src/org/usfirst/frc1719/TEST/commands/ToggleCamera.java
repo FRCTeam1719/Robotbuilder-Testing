@@ -5,7 +5,9 @@ import org.usfirst.frc1719.TEST.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Toggles the camera position to the next in the series of presets. the presets array is of arbitrary length,
+ * but each sub-array (defining a single preset) must have two doubles in {X, Y} order, both on the range [0, 1]
+ * for the preset.
  */
 public class ToggleCamera extends Command {
 

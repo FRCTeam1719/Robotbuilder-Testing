@@ -6,6 +6,11 @@ import org.usfirst.frc1719.TEST.commands.TurnToCamera;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+/**
+ * Autonomous code for grabbing the containers from the step. 
+ * @author duncan
+ *
+ */
 public class AutoGetCtr implements ICommandOption {
 
 	// Ranges are in mV. lower voltage = higher distance.

@@ -4,7 +4,7 @@ import org.usfirst.frc1719.TEST.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Turns the robot to wherever the camera was facing when this command was started. Then centers the camera.
  */
 public class TurnToCamera extends Command {
 

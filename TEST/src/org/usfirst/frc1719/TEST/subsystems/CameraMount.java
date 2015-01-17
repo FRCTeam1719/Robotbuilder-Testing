@@ -51,6 +51,10 @@ public class CameraMount extends Subsystem {
     	setDefaultCommand(new DriveServos());
     }
     
+    /**
+     * Sets the raw X servo position. 
+     * @param position a double on [0, 1]. 
+     */
     public void setXServoRaw(double position) {
     	panPositionX = position;
     	xServo.set(position);

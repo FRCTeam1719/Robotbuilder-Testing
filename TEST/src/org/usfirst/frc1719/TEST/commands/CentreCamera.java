@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc1719.TEST.Robot;
 
 /**
- *
+ * Command to center the camera.
  */
 public class  CentreCamera extends Command {
 
