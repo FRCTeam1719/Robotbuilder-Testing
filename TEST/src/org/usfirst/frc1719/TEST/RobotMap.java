@@ -83,7 +83,7 @@ public class RobotMap {
         sensorsLimitSwitchSpringStringThingExtended = new DigitalInput(8);
         LiveWindow.addSensor("Sensors", "LimitSwitch SpringStringThing", sensorsLimitSwitchSpringStringThingExtended);
         
-        sensorsLimitSwitchSpringStringThingExtended = new DigitalInput(9);
+        sensorsLimitSwitchSpringStringThingRetracted = new DigitalInput(9);
         LiveWindow.addSensor("Sensors", "LimitSwitch SpringStringThing", sensorsLimitSwitchSpringStringThingRetracted);
         
         cameraMountYServo = new Servo(4);
