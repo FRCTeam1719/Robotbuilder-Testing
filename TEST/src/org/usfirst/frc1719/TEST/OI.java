@@ -14,13 +14,10 @@ package org.usfirst.frc1719.TEST;
 import org.usfirst.frc1719.TEST.commands.AutonomousCommand;
 import org.usfirst.frc1719.TEST.commands.ExtendSpringStringThing;
 import org.usfirst.frc1719.TEST.commands.RetractSpringStringThing;
-import org.usfirst.frc1719.TEST.commands.Solenoid1Off;
-import org.usfirst.frc1719.TEST.commands.Solenoid1On;
 import org.usfirst.frc1719.TEST.commands.ToggleCamera;
 import org.usfirst.frc1719.TEST.commands.TurnToCamera;
 import org.usfirst.frc1719.TEST.commands.CentreCamera;
 import org.usfirst.frc1719.TEST.commands.DriveServos;
-import org.usfirst.frc1719.TEST.commands.SpinMotor;
 import org.usfirst.frc1719.TEST.commands.UseDrive;
 
 import edu.wpi.first.wpilibj.Joystick;
