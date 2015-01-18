@@ -1,5 +1,7 @@
 package org.usfirst.frc1719.TEST.autonomous;
 
+import java.util.Date;
+
 import org.usfirst.frc1719.TEST.Robot;
 import org.usfirst.frc1719.TEST.commands.TurnToCamera;
 
@@ -19,10 +21,12 @@ public class AutoGetCtr implements ICommandOption {
 	private static final double SCAN_SPEED = 0.5D;
 	private static final double FORWARD_SPD = 1.0D;
 	private static final double FORWARD_ANGLE = 0.0D;
-	private static final int STAGES = 7;
+	private static final long MOVE_TIME_MILLIS = 500L;
+	private static final int STAGES = 8;
 	private boolean cm_mv_dir = false;
 	private int stage = 0;
 	private TurnToCamera tt_cam = new TurnToCamera();
+	private Date time;
 	
 	@Override
 	public void doCMD() {
@@ -66,11 +70,22 @@ public class AutoGetCtr implements ICommandOption {
 					break;
 				}
 			case 6:
-				if(Robot.fr.getRetracted()) stage++;
-				else {
+				if(Robot.fr.getRetracted()) {
+					stage++;
+					time = new Date();
+				} else {
 					Robot.drive.moveMechanum(Math.PI, FORWARD_SPD, FORWARD_ANGLE);
 					Robot.fr.getExtMotor().set(Relay.Value.kReverse);
 					break;
+				}
+			case 7:
+				if((new Date()).getTime() > (time.getTime() + MOVE_TIME_MILLIS)) stage++;
+				else {
+					if(getDistance() < RANGE_2) stage++;
+					else {
+						Robot.drive.moveMechanum(Math.PI / 2, FORWARD_SPD, FORWARD_ANGLE);
+						break;
+					}
 				}
 		}
 	}

@@ -9,14 +9,15 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc1719.TEST.commands;
+package org.usfirst.frc1719.commands;
 
 //import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
-import org.usfirst.frc1719.TEST.Robot;
+
+import org.usfirst.frc1719.Robot;
 
 /**
  *
@@ -64,6 +65,7 @@ public class  UseDrive extends Command {
     	
     	//Drives (mechanum) given the values from the joystick
     	Robot.drive.moveCartesian(lx, ly, rx);
+    	
     }
     
     

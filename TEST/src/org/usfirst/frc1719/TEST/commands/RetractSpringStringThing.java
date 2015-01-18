@@ -7,12 +7,16 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ReadIRSensor extends Command {
-
-    public ReadIRSensor() {
+public class RetractSpringStringThing extends Command {
+	//magic numbers, represent the expected state of the limit switches
+	final boolean NOT_ACTIVATED = true;
+	final boolean ACTIVATED = false;
+	//makes the program terminable
+	boolean done = false;
+    public RetractSpringStringThing() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.sensors);
+    	requires(Robot.springStringThing);
     }
 
     // Called just before this Command runs the first time
@@ -21,20 +25,27 @@ public class ReadIRSensor extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println(Robot.sensors.getIRSensorValue());
+    	done = false;
+    	if(Robot.sensors.getLimitSwitchSpringStringThing(2).get()==ACTIVATED){
+    		Robot.springStringThing.off();
+    		done = true;
+    	}
+    	else if(Robot.sensors.getLimitSwitchSpringStringThing(2).get()==NOT_ACTIVATED) Robot.springStringThing.retract();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return done;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	done = false;
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	done = true;
     }
 }

@@ -9,12 +9,13 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc1719.TEST.subsystems;
+package org.usfirst.frc1719.subsystems;
 
-import org.usfirst.frc1719.TEST.RobotMap;
-import org.usfirst.frc1719.TEST.commands.*;
+import org.usfirst.frc1719.RobotMap;
+import org.usfirst.frc1719.commands.UseDrive;
 
-import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
@@ -45,7 +46,7 @@ public class Drive extends Subsystem {
     	//converts from degrees to radians then executes mecanumdrivepolar
     	robotDrive.mecanumDrive_Polar(magnitude, direction * 180 / Math.PI, rotation);
     }
-
+    
     public void moveCartesian(double x, double y, double rot) {
     	robotDrive.mecanumDrive_Cartesian(x, y, rot, 0);
     }
