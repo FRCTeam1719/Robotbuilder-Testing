@@ -19,7 +19,6 @@ public class SpringStringThing extends Subsystem{
 	}
 
 	public void off() {
-		System.out.println("OFF BITCH");
 		RobotMap.springStringThingMotor.set(Relay.Value.kOff);
     }
     public Solenoid getSolenoid() {

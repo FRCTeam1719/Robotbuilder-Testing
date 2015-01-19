@@ -13,6 +13,8 @@ public class RetractSpringStringThing extends Command {
 	final boolean ACTIVATED = false;
 	//makes the program terminable
 	boolean done = false;
+	//checks if this is the first time the executable is called
+	boolean firstRun = true;
     public RetractSpringStringThing() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -25,6 +27,11 @@ public class RetractSpringStringThing extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//pauses before running the first time through
+    	if(firstRun){
+    		Robot.springStringThing.off();
+    		firstRun = false;
+    	}
     	//if limit switch at extreme triggers, keep the robot from breaking itself by retracting further
     	if(Robot.sensors.getLimitSwitchSpringStringThing(2).get()==!ACTIVATED){
     		System.out.println("OFF");
