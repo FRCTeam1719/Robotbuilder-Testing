@@ -39,7 +39,7 @@ public class AutoGetCtr implements ICommandOption {
 					break;
 				}
 			case 1:
-				if(tt_cam.isFinished()) stage++;
+				if(tt_cam.done()) stage++;
 				else {
 					tt_cam.exec();
 					break;

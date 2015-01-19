@@ -84,4 +84,7 @@ public class TurnToCamera extends Command {
     public void exec() {
     	execute();
     }
+    public boolean done() {
+    	return isFinished();
+    }
 }

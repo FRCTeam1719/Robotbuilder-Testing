@@ -19,11 +19,11 @@ public class FishingRod extends Subsystem {
     }
     
     public boolean getExtended() {
-    	return Robot.sensors.getLimitSwitch().get();
+    	return Robot.sensors.getLimitSwitchSpringStringThing(1).get();
     }
     
     public boolean getRetracted() {
-    	return Robot.sensors.getLimitSwitch2().get();
+    	return Robot.sensors.getLimitSwitchSpringStringThing(2).get();
     }
     
     public Relay getExtMotor() {
