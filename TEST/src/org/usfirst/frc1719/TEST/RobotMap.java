@@ -90,7 +90,7 @@ public class RobotMap {
         springStringThingSolenoid = new Solenoid(0);
         LiveWindow.addActuator("Pneumatics", "SpringStringThingSolenoid", springStringThingSolenoid);
         
-        motorMotorRelay = new Relay(0);
+        motorMotorRelay = new Relay(1);
         LiveWindow.addActuator("Motor", "MotorRelay", motorMotorRelay);
         
         springStringThingMotor = new Relay(0);

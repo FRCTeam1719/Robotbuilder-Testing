@@ -26,6 +26,7 @@ public class RetractSpringStringThing extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	done = false;
+    	//if limit switch at extreme triggers, keep the robot from breaking itself by retracting further
     	if(Robot.sensors.getLimitSwitchSpringStringThing(2).get()==ACTIVATED){
     		Robot.springStringThing.off();
     		done = true;

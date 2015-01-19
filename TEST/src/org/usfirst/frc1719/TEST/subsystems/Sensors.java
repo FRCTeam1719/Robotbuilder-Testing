@@ -120,18 +120,17 @@ public class Sensors extends Subsystem {
 		
 		return encoderCPS;
 	}
-<<<<<<< HEAD
+
 	public DigitalInput getLimitSwitchSpringStringThing(int index){
 		//extended vs retracted
 		if(index == 1) return limitSwitchSpringStringThingExtended;
 		if(index == 2) return limitSwitchSpringStringThingRetracted;
 		//default to prevent errors
 		return null;
-=======
+	}
 	
 	public double correctEncoderValue(double badRPM) {
 		return badRPM * 1.4;
->>>>>>> master
 	}
 }
 

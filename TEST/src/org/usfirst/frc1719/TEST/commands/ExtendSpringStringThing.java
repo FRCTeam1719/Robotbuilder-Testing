@@ -25,6 +25,7 @@ public class ExtendSpringStringThing extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//if limit switch at extreme triggers, keep the robot from breaking itself by extending further
     	done = false;
     	if(Robot.sensors.getLimitSwitchSpringStringThing(1).get()==ACTIVATED){
     		Robot.springStringThing.off();
