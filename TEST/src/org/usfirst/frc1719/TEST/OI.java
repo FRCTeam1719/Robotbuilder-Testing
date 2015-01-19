@@ -16,6 +16,7 @@ import org.usfirst.frc1719.TEST.commands.ExtendSpringStringThing;
 import org.usfirst.frc1719.TEST.commands.RetractSpringStringThing;
 import org.usfirst.frc1719.TEST.commands.Solenoid1Off;
 import org.usfirst.frc1719.TEST.commands.Solenoid1On;
+import org.usfirst.frc1719.TEST.commands.StopSpringStringThing;
 import org.usfirst.frc1719.TEST.commands.ToggleCamera;
 import org.usfirst.frc1719.TEST.commands.TurnToCamera;
 import org.usfirst.frc1719.TEST.commands.CentreCamera;
@@ -80,10 +81,10 @@ public class OI {
         joystick1 = new Joystick(0);
         
         aButton = new JoystickButton(joystick1, 1);
-        aButton.whileHeld(new SpinMotor());
+        aButton.whenPressed(new ExtendSpringStringThing());
         yButton = new JoystickButton(joystick1, 4);
-        yButton.whenPressed(new Solenoid1On());
-        yButton.whenReleased(new Solenoid1Off());
+        yButton.whenPressed(new RetractSpringStringThing());
+        
         
         rightBumper = new JoystickButton(joystick1, 6);
         rightBumper.whenPressed(new ToggleCamera());
@@ -115,9 +116,11 @@ public class OI {
         aButton = new JoystickButton(joystick2, 1);
         aButton.whileHeld(new SpinMotor());
         bButton = new JoystickButton(joystick2,2);
-        bButton.whileHeld(new ExtendSpringStringThing());
+        bButton.whenPressed(new ExtendSpringStringThing());
+        bButton.whenReleased(new StopSpringStringThing());
         yButton = new JoystickButton(joystick2, 4);
-        yButton.whileHeld(new RetractSpringStringThing());
+        yButton.whenPressed(new RetractSpringStringThing());
+        yButton.whenReleased(new StopSpringStringThing());
         
         rightBumper = new JoystickButton(joystick2, 6);
         rightBumper.whenPressed(new ToggleCamera());

@@ -25,13 +25,14 @@ public class RetractSpringStringThing extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	done = false;
     	//if limit switch at extreme triggers, keep the robot from breaking itself by retracting further
-    	if(Robot.sensors.getLimitSwitchSpringStringThing(2).get()==ACTIVATED){
+    	if(Robot.sensors.getLimitSwitchSpringStringThing(2).get()==!ACTIVATED){
+    		System.out.println("OFF");
     		Robot.springStringThing.off();
-    		done = true;
     	}
-    	else if(Robot.sensors.getLimitSwitchSpringStringThing(2).get()==NOT_ACTIVATED) Robot.springStringThing.retract();
+    	else {
+    		Robot.springStringThing.retract();
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -41,12 +42,10 @@ public class RetractSpringStringThing extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	done = false;
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	done = true;
     }
 }

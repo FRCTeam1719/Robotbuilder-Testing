@@ -7,17 +7,20 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class SpringStringThing extends Subsystem{
-    Relay motorRelay = RobotMap.springStringThingMotor;
-    Solenoid solenoid1 = RobotMap.springStringThingSolenoid;
-    
-    public void extend(){
-    	motorRelay.set(Relay.Value.kForward);
-    }
-    public void retract(){
-    	motorRelay.set(Relay.Value.kReverse);
-    }
-    public void off(){
-    	motorRelay.set(Relay.Value.kOff);
+	//Relay springStringThingRelay = RobotMap.springStringThingMotor;
+	Solenoid solenoid1 = RobotMap.springStringThingSolenoid;
+
+	public void extend() {
+		RobotMap.springStringThingMotor.set(Relay.Value.kForward);
+	}
+
+	public void retract() {
+		RobotMap.springStringThingMotor.set(Relay.Value.kReverse);
+	}
+
+	public void off() {
+		System.out.println("OFF BITCH");
+		RobotMap.springStringThingMotor.set(Relay.Value.kOff);
     }
     public Solenoid getSolenoid() {
     	return solenoid1;
