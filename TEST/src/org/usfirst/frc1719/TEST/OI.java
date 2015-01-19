@@ -12,12 +12,13 @@
 package org.usfirst.frc1719.TEST;
 
 import org.usfirst.frc1719.TEST.commands.AutonomousCommand;
+import org.usfirst.frc1719.TEST.commands.CentreCamera;
+import org.usfirst.frc1719.TEST.commands.DriveServos;
 import org.usfirst.frc1719.TEST.commands.ExtendSpringStringThing;
+import org.usfirst.frc1719.TEST.commands.OrbitDetectedObject;
 import org.usfirst.frc1719.TEST.commands.RetractSpringStringThing;
 import org.usfirst.frc1719.TEST.commands.ToggleCamera;
 import org.usfirst.frc1719.TEST.commands.TurnToCamera;
-import org.usfirst.frc1719.TEST.commands.CentreCamera;
-import org.usfirst.frc1719.TEST.commands.DriveServos;
 import org.usfirst.frc1719.TEST.commands.UseDrive;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -82,7 +83,8 @@ public class OI {
         leftBumper = new JoystickButton(joystick1, 5);
         leftBumper.whenPressed(new TurnToCamera());
 	    
-        
+        xButton = new JoystickButton(joystick1, 1);
+        xButton.whenPressed(new OrbitDetectedObject());
         
         
         // SmartDashboard Buttons
