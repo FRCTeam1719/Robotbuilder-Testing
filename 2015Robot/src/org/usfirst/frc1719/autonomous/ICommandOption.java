@@ -1,8 +1,5 @@
-package org.usfirst.frc1719.TEST.autonomous;
+package org.usfirst.frc1719.autonomous;
 
-/**
- * Implement this to create a possible autonomous mode. Remeber to update org.usfirst.frc1719.TEST.Robot.EnumAutoCMD
- */
 public interface ICommandOption {
 	/**
 	 * Called repeatedly during autonomous when selected.

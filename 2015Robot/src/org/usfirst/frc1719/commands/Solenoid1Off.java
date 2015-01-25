@@ -9,18 +9,19 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc1719.TEST.commands;
+package org.usfirst.frc1719.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc1719.TEST.Robot;
+
+import org.usfirst.frc1719.Robot;
 
 /**
  *
  */
-//sets solenoid to true
-public class  Solenoid1On extends Command {
+//sets solenoid to false
+public class  Solenoid1Off extends Command {
 
-    public Solenoid1On() {
+    public Solenoid1Off() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 
@@ -32,18 +33,19 @@ public class  Solenoid1On extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//sets solenoid to true
-    	Robot.pneumatics.getSolenoid1().set(true);
+    	//sets solenoid to false
+    	Robot.pneumatics.getSolenoid1().set(false);
     }
 
     // Make this return true when this Command no longer needs to run execute()
-    //currently never ends (can be interrupted), memory issues?
+    //currently not terminable (other functions called sooner interrupt/override this one), memory issues?
     protected boolean isFinished() {
-    	return false;
+        return false;
     }
 
     // Called once after isFinished returns true

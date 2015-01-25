@@ -9,14 +9,15 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc1719.TEST.commands;
+package org.usfirst.frc1719.commands;
 
 //import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
-import org.usfirst.frc1719.TEST.Robot;
+
+import org.usfirst.frc1719.Robot;
 
 /**
  *
@@ -33,10 +34,6 @@ public class  UseDrive extends Command {
 	//is used to slow down the print return of the gyro when testing
 	//Currently Unused
 	//private int i = 0;
-	//Should a direction be prevented for robot movement?
-	private boolean preventMovement;
-	//which direction to prevent movement?
-	private int directionPrevent;
 	
 	
     public UseDrive() {
@@ -69,19 +66,8 @@ public class  UseDrive extends Command {
     	//Drives (mechanum) given the values from the joystick
     	Robot.drive.moveCartesian(lx, ly, rx);
     	
-    	//Print statements to determine/test sensor output
-        //System.out.println("Infrared Value: " + Robot.sensors.getIRSensorValue()); 
-    	//double encoderRPM = Robot.sensors.correctEncoderValue(Robot.sensors.getEncoderRPM(1));
-    	//System.out.println("Encoder1 RPM: " + encoderRPM + "  Infrared Value: " + Robot.sensors.getIRSensorValue());
-        }
-    
-    public void setPreventMovement(boolean input){
-    	preventMovement = input;
     }
     
-    public void setDirectionPrevention(int input){
-    	directionPrevent = input;
-    }
     
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

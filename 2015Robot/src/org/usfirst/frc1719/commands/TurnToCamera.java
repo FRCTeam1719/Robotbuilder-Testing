@@ -1,12 +1,14 @@
-package org.usfirst.frc1719.TEST.commands;
+package org.usfirst.frc1719.commands;
 
-import org.usfirst.frc1719.TEST.Robot;
+import org.usfirst.frc1719.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Turns the robot to wherever the camera was facing when this command was started. Then centers the camera.
+ *
  */
 public class TurnToCamera extends Command {
+	
 	//checks if the command was just called
 	private boolean flag = true;
 	//makes the command terminable
@@ -16,7 +18,7 @@ public class TurnToCamera extends Command {
 	//Degree tolerance for target
 	private static final double TOLERANCE = 15.0D;
 	//how fast the robot turns
-	private static final double SPD = 0.5D;
+	private static final double SPEED = 0.5D;
 	private static final double NIL = 0.0D;
 	
     public TurnToCamera() {
@@ -52,8 +54,8 @@ public class TurnToCamera extends Command {
     		return;
     	}
     	
-    	//System.out.println("Current Error: " + (target - curr));
-    	double dir = (target < curr) ? -SPD : SPD;
+    	System.out.println("Current Error: " + (target - curr));
+    	double dir = (target < curr) ? -SPEED : SPEED;
     	Robot.drive.moveMechanum(NIL, NIL, dir);
     }
     
@@ -73,18 +75,5 @@ public class TurnToCamera extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    }
-    
-    /**
-     * !!! DANGER ZONE !!!
-     * Manually executes one cycle of the command. Only use if you know exactly
-     * what you are doing. Preferentially use the safer Command.start() method
-     * for automatic execution.
-     */
-    public void exec() {
-    	execute();
-    }
-    public boolean done() {
-    	return isFinished();
     }
 }
