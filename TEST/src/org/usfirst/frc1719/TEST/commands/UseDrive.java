@@ -26,6 +26,9 @@ public class  UseDrive extends Command {
 	private static final int LEFT_X = 0;
 	private static final int LEFT_Y = 1;
 	private static final int RIGHT_X = 4;
+	//Magic Numbers: the direction of the tote stack to avoid
+	private static final boolean FRONT = true;
+	private static final boolean BACK = false;
 	//Currently unused
 	//private static final int RIGHT_Y = 5;
 	//Tolerance for dead zone to make it possible to completely stop the robot
@@ -34,9 +37,9 @@ public class  UseDrive extends Command {
 	//Currently Unused
 	//private int i = 0;
 	//Should a direction be prevented for robot movement?
-	private boolean preventMovement;
+	private boolean preventMovement = false;
 	//which direction to prevent movement?
-	private int directionPrevent;
+	private boolean directionPrevent = false;
 	
 	
     public UseDrive() {
@@ -66,8 +69,19 @@ public class  UseDrive extends Command {
     	if (Math.abs(lx) < TOLERANCE) lx = 0.0D;
     	if (Math.abs(rx) < TOLERANCE) rx = 0.0D;
     	
+    	//checks direction of expected movement. If in the banned direction, set ly to 0
+    	if(preventMovement == true){
+    		if(directionPrevent==FRONT){
+    			if(ly>0) ly = 0.0D;
+    		}
+    		else if(directionPrevent==BACK){
+    			if(ly<0) ly = 0.0D;
+    		}
+    	}
+    	
     	//Drives (mechanum) given the values from the joystick
     	Robot.drive.moveCartesian(lx, ly, rx);
+    	
     	
     	//Print statements to determine/test sensor output
         //System.out.println("Infrared Value: " + Robot.sensors.getIRSensorValue()); 
@@ -79,7 +93,7 @@ public class  UseDrive extends Command {
     	preventMovement = input;
     }
     
-    public void setDirectionPrevention(int input){
+    public void setDirectionPrevention(boolean input){
     	directionPrevent = input;
     }
     
